@@ -1,0 +1,180 @@
+/* global styles */
+html {
+  position: relative;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  // font-family: Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: $second_color;
+  color: $main_color;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+}
+
+button {
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+fieldset {
+  margin: 0;
+}
+
+iframe {
+  border: none;
+}
+
+/*
+Доступно скрываю элементы
+*/
+
+.visually-hidden {
+  position: fixed;
+  transform: scale(0);
+}
+
+
+/*
+Пример контейнера
+
+Если контейнер 1180px по макету,
+то для max-width прибавляем паддинги 30px*2, 
+в итоге 1240px
+Чтобы контент не прижимался к краям экрана
+*/
+
+// todo adaptive
+.container {
+  max-width: 1240px;
+  padding: 0 30px;
+  margin: 0 auto;
+}
+
+
+/* my */
+
+.header__nav-list {
+  display: flex;
+}
+.header__nav-item {
+  display: block;
+  appearance: none;
+}
+.header__link {
+  color: #000;
+  cursor: pointer;
+}
+
+
+.goods__list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.goods__item {
+  display: block;
+  appearance: none;
+  list-style: none;
+  width: 280px;
+}
+
+.product {
+  border: 1px solid lawngreen;
+}
+.product__row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.product__btn-favorite {
+  display: block;
+  width: 24px;
+  height: 24px;
+  color: #000;
+  background: url(../img/heart.svg) center no-repeat;
+  background-size: 100%;
+  border: 1px solid transparent;
+  background-color: transparent;
+  cursor: pointer;
+}
+.product__color-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 6px;
+}
+.product__color-item {
+  display: block;
+  appearance: none;
+  // border: 1px solid springgreen;
+}
+.color {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 3px;
+}
+.color_red {
+  background-color: #FF8686;
+  border: 1px solid #FF8686;
+}
+.color_white {
+  background-color: #fff;
+  border: 1px solid #000;
+}
+.color_black {
+  background-color: #000;
+  border: 1px solid #000;
+}
+
+
+
+
+
+::selection {
+  background-color: dimgrey;
+  color: white;
+}
