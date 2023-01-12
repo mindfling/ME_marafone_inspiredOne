@@ -79,6 +79,10 @@ iframe {
   в итоге 1240px
   Чтобы контент не прижимался к краям экрана
 */
+
+
+
+
 // * adaptive
 .container {
   --max-width: 1180px;
@@ -87,19 +91,37 @@ iframe {
   padding: 0 var(--padding);
   margin: 0 auto;
 
-  @media (max-width: 1024px) {
+  @include laptop {
     --max-width: 880px;
   }
-  @media (max-width: 768px) {
+
+  @include tablet {
     --max-width: 620px;
   }
-  @media (max-width: 540px) {
+
+  @include mobile {
     --padding: 15px;
   }
+
+  // //laptop
+  // @media (max-width: 1024px) {
+  //   --max-width: 880px;
+  // }
+
+  // //tablet
+  // @media (max-width: 768px) {
+  //   --max-width: 620px;
+  // }
+
+  // //mobile
+  // @media (max-width: 540px) {
+  //   --padding: 15px;
+  // }
   
   border: 1px solid lawngreen;
 }
 // 30 + 1180 + 30 = 1240
+// 30 + 
 
 
 // .container {

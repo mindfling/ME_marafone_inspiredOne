@@ -1,6 +1,29 @@
 $second_color: #ffffff;
 $main_color: #000000;
-
 $light_grey: #dcdcdc;
 $gray: #8a8a8a;
 $dark_gray: #404040;
+
+
+// * media max-width mixin
+$laptop: 1024px;
+$tablet: 768px;
+$mobile: 540px;
+
+@mixin laptop {
+  @media (max-width: #{$laptop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
+}
