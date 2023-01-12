@@ -73,20 +73,40 @@ iframe {
 
 
 /*
-Пример контейнера
-
-Если контейнер 1180px по макету,
-то для max-width прибавляем паддинги 30px*2, 
-в итоге 1240px
-Чтобы контент не прижимался к краям экрана
+ * Пример контейнера
+  Если контейнер 1180px по макету,
+  то для max-width прибавляем паддинги 30px*2, 
+  в итоге 1240px
+  Чтобы контент не прижимался к краям экрана
 */
-
-// todo adaptive
+// * adaptive
 .container {
-  max-width: 1240px;
-  padding: 0 30px;
+  --max-width: 1180px;
+  --padding: 30px;
+  max-width: calc(var(--max-width) + var(--padding)*2);
+  padding: 0 var(--padding);
   margin: 0 auto;
+
+  @media (max-width: 1024px) {
+    --max-width: 880px;
+  }
+  @media (max-width: 768px) {
+    --max-width: 620px;
+  }
+  @media (max-width: 540px) {
+    --padding: 15px;
+  }
+  
+  border: 1px solid lawngreen;
 }
+// 30 + 1180 + 30 = 1240
+
+
+// .container {
+//   max-width: 1240px;
+//   padding: 0 30px;
+//   margin: 0 auto;
+// }
 
 
 /* my 
