@@ -29,6 +29,7 @@ img, svg {
 }
 
 button {
+  display: block;
   padding: 0;
   cursor: pointer;
   background-color: transparent;
@@ -38,6 +39,7 @@ button {
 }
 
 a {
+  display: block;
   text-decoration: none;
   color: inherit;
 }

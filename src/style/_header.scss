@@ -1,48 +1,78 @@
 .header {
   display: block;
-  padding-top: 24px;
-  padding-bottom: 18px;
-  // border: 1px solid violet;
+  padding: 24px 0 36px;
+
+  @include tablet {
+    padding: 16px 0 16px;
+  }
+  @include mobile {
+    padding: 16px 0 24px;
+  }
+
   &__container {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     align-items: center;
     // border: 1px solid lawngreen;
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
   &__link {
     display: block;
     width: 24px;
     height: 24px;
-    opacity: 1;
+    // opacity: 1;
+    transition: color 300ms ease-in-out;
   }
   &__link:hover {
-    opacity: .7;
+    color: $gray;
   }
   &__logo {
     display: block;
+    justify-self: center;
     width: 250px;
     height: 65px;
+    @include tablet {
+      width: 154px;
+      height: 41px;
+    }
+    @include mobile {
+      justify-self: start;
+      width: 124px;
+      height: 33px;
+    }
   }
-  &__nav-item {
+  &__navigation {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    // border: 1px solid orange;
   }
   &__nav-list {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     gap: 24px;
-  }
-  &__navigation {
+    @include mobile {
+      gap: 16px;
+    }
+    // border: 1px solid red;
   }
   &__phone {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    // font-family: 'Inter';
-    // font-style: normal;
+    display: block;
     font-weight: 600;
     font-size: 14px;
-    line-height: 17px;
+    line-height: 22px;
     text-transform: uppercase;
-    color: #000000;
+    color: $main_color;
+    width: max-content;
+    @include tablet {
+      font-size: 12px;
+      // border: 1px solid orange;
+    }
+    @include mobile {
+      display: none;
+    }
   }
 }
