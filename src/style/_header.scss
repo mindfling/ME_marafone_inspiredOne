@@ -1,7 +1,8 @@
 .header {
   display: block;
-  margin-top: 24px;
-  margin-bottom: 36px;
+  padding-top: 24px;
+  padding-bottom: 18px;
+  // border: 1px solid violet;
   &__container {
     display: flex;
     justify-content: space-between;

@@ -1,7 +1,9 @@
+// * color variables
 $second_color: #ffffff;
 $main_color: #000000;
 $light_grey: #dcdcdc;
 $gray: #8a8a8a;
+$dim_gray: dimgrey;
 $dark_gray: #404040;
 
 
@@ -10,6 +12,7 @@ $laptop: 1024px;
 $tablet: 768px;
 $mobile: 540px;
 
+// * global media mixin
 @mixin laptop {
   @media (max-width: #{$laptop}) {
     @content;
