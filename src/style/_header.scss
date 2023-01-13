@@ -1,7 +1,6 @@
 .header {
   display: block;
   padding: 24px 0 36px;
-
   @include tablet {
     padding: 16px 0 16px;
   }
@@ -13,21 +12,34 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     align-items: center;
-    // border: 1px solid lawngreen;
     @include mobile {
       grid-template-columns: repeat(2, 1fr);
     }
   }
+
+  &__phone {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: $main_color;
+    width: max-content;
+    @include tablet {
+      font-size: 12px;
+    }
+    @include mobile {
+      display: none;
+    }
+  }
+
   &__link {
     display: block;
-    width: 24px;
-    height: 24px;
-    // opacity: 1;
     transition: color 300ms ease-in-out;
   }
   &__link:hover {
     color: $gray;
   }
+
   &__logo {
     display: block;
     justify-self: center;
@@ -43,11 +55,11 @@
       height: 33px;
     }
   }
+
   &__navigation {
     justify-self: end;
     display: flex;
     align-items: center;
-    // border: 1px solid orange;
   }
   &__nav-list {
     display: flex;
@@ -56,23 +68,6 @@
     gap: 24px;
     @include mobile {
       gap: 16px;
-    }
-    // border: 1px solid red;
-  }
-  &__phone {
-    display: block;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 22px;
-    text-transform: uppercase;
-    color: $main_color;
-    width: max-content;
-    @include tablet {
-      font-size: 12px;
-      // border: 1px solid orange;
-    }
-    @include mobile {
-      display: none;
     }
   }
 }
