@@ -1,0 +1,132 @@
+.hero {
+  display: block;
+  // flex-direction: row;
+  // justify-content: flex-start;
+  // align-items: center;
+  width: 100%;
+  height: 450px;
+  background-color: $dark_gray;
+  color: $second_color;
+  margin-bottom: 80px; // todo
+
+  background-position: center;
+  background-size: cover;
+  background-image: url(../img/hero/hero_banner_women.jpg);
+  
+  @include laptop {
+    height: 338px;
+    margin-bottom: 24px;
+    background-image: url(../img/hero/hero_banner_women-laptop.jpg);
+  }
+  @include tablet {
+    // height: 338px;
+    // margin-bottom: 24px;
+    background-image: url(../img/hero/hero_banner_women_tablet.jpg);
+    // border: 1px solid orange;
+  }
+  @include mobile {
+    height: 200px;
+    margin-bottom: 24px;
+    background-image: url(../img/hero/hero_banner_women_mobile.jpg);
+    // border: 1px solid red;
+  }
+
+  &_women {}
+  &_men {}
+
+  &_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    // border: 1px solid lawngreen;
+  }
+  &__content {
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: space-between;
+    // align-items: flex-start;
+    // gap: 40px 0;
+    max-width: 590px;
+    padding: 172px 0 86px;
+    @include tablet {
+      max-width: 410px;
+      padding: 156px 0 50px;
+    }
+    @include mobile {
+      padding: 76px 0 24px;
+      max-width: 290px;
+    }
+  }
+  &__title {
+    font-weight: 400;
+    text-transform: uppercase;
+    color: $second_color;
+    font-size: 44px;
+    // ? line-height: 53px;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    @include laptop {
+      font-size: 44px;
+      // ? line-height: 36px;
+      line-height: 1.2;
+      margin-bottom: 40px;
+    }
+    @include tablet {
+      font-size: 30px;
+      // ? line-height: 36px;
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    @include mobile {
+      font-size: 20px;
+      // ? line-height: 24px;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+  }
+  &__link {
+    display: inline-block;
+    text-align: center;
+    text-transform: uppercase;
+
+    transition-property: background-color, border-color;
+    transition-timing-function: ease-in-out;
+    transition-duration: 300ms;
+    
+    color: $second_color;
+    background-color: transparent;
+    border: 1px solid $second_color;
+
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 17px;
+    padding: 14px 41px;
+    @include laptop {
+      font-size: 14px;
+      line-height: 17px;
+      padding: 14px 41px;
+    }
+    @include tablet {
+      font-size: 10px;
+      line-height: 12px;
+      padding: 12px 40px;
+    }
+    @include mobile {
+      font-size: 10px;
+      line-height: 12px;
+      padding: 12px 40px;
+    }
+    
+    &:hover {
+      background-color: $dark_gray;
+      border-color: $second_color;
+    }
+    &:focus {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: $second_color;
+    }
+  }
+}
