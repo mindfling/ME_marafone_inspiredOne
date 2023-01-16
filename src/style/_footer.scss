@@ -1,0 +1,142 @@
+.footer {
+  // font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  // color: $main-color;
+  // border: 1px solid royalblue;
+  margin: 0;
+  // padding: 120px 0 24px;
+  padding-top: 120px;
+  padding-bottom: 24px;
+  @include tablet {
+    padding-top: 80px;
+    padding-bottom: 16px;
+  }
+  @include mobile {
+    padding-top: 60px;
+  }
+  
+  &__container {
+    padding: 0;
+    padding-top: 51px;
+    // border: 1px solid lawngreen;
+    border-top: 1px solid $light_grey;
+
+    display: grid;
+    grid-template-areas:  "cat soc cont" "copy . dev";
+    grid-column-gap: 90px;
+    grid-row-gap: 26px;
+
+    @include tablet {
+    }
+    @include mobile {
+    }
+  }
+  &__item {
+    // border: 1px solid lawngreen;
+    padding:  0;
+  }
+  &__link {
+    display: inline-block;
+    &:hover {
+      color: $dark_grey;
+    }
+  }
+  &__title {
+    display: block;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #000000;
+    margin-bottom: 24px;
+  }
+}
+
+.footer-category {
+  grid-area: cat;
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  &__title {
+
+  }
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    column-gap: 80px;
+  }
+  &__subtitle {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  &__subitem {
+  }
+  &__sublist {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+.footer-social {
+  grid-area: soc;
+  // border: 1px solid magenta;
+  &__item {}
+  &__link {
+    display: block;
+    &:hover {
+      color: darkmagenta;
+    }
+  }
+  &__list {}
+  &__subtitle {}
+  &__title {}
+}
+
+.footer-contacts {
+  grid-area: cont;
+  &__email {}
+  &__link {}
+  &__phone {}
+}
+
+.footer-copyright {
+  grid-area: copy;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.footer-development {
+  grid-area: dev;
+  display: block;
+  &__item {
+
+  }
+  &__list {
+    display: block;
+  }
+}
+
+.footer {
+  &-copyright,
+  &-development {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
+  }
+}
