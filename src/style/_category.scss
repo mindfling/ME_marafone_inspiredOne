@@ -27,19 +27,24 @@
 
   &__link {
     position: relative;
-    transition: color 0.3ms ease-in-out;
-
-    &:hover {
-      color: $gray;
-    }
+    transition: color 300ms ease-in-out; // link color
+    // transition-property: color transform;
+    // transition-duration: 500ms;
+    // transition-timing-function: ease-in-out;
+    
     &::after {
       content: '';
       position: absolute;
       left: 50%;
       bottom: -10px;
-      transform: translate(-50%, 0);
       width: 26px;
       height: 2px;
+      transition-property: color transform opacity;
+      transition-duration: 300ms;
+      transition-timing-function: ease-in-out;
+      // transition: transform 300ms ease-in-out; // link:after transform
+      // transform: translate(-50%, 0);
+      transform: translate(-50%, 0) scale(0, 1);
       background-color: $main_color;
       opacity: 0;
       @include tablet {
@@ -48,10 +53,20 @@
         height: 1px;
       }
     }
+    &:hover {
+      opacity: 1;
+      color: $dark_grey;
+      &::after {
+        opacity: 1;
+        background-color: $dark_grey;
+        transform: translate(-50%, 0) scale(1, 1);
+      }
+    }
     &_active {
       pointer-events: none;
       &::after {
         opacity: 1;
+        transform: translate(-50%, 0) scale(1, 1);
       }
     }
   }
