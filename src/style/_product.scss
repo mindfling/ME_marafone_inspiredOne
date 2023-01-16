@@ -1,0 +1,51 @@
+.color {
+  &_black {}
+  &_check {}
+  &_red {}
+  &_white {}
+}
+
+.goods {
+  &__container {}
+  &__item {}
+  &__list {}
+  &__product {}
+  &__title {}
+}
+
+.product {
+  &__btn-favorite {}
+  &__color-item {}
+  &__color-list {}
+  &__image {}
+  &__link {}
+  &__price {}
+  &__row {}
+  &__title {}
+}
+
+
+.product {
+  &__btn-favorite {}
+  &__color-item {}
+  &__color-list {}
+  &__image {}
+  &__link {
+    display: block;
+    transition-property: border, box-shadow;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+    box-shadow: none;
+    // border: 1px solid lawngreen;
+    border: 1px solid transparent;
+    &:hover {
+      box-shadow: 0 0 10px 6px #0202023f;
+      // border: 1px solid $dark_gray;
+      // border: 1px solid $grey;
+      border: 1px solid $light_gray;
+    }
+  }
+  &__price {}
+  &__row {}
+  &__title {}
+}
