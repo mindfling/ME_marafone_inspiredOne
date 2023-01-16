@@ -13,21 +13,53 @@
   @include laptop {
     height: 338px;
     margin-bottom: 24px;
-    background-image: url(../img/hero/banner_women-laptop.jpg);
+    // background-image: url(../img/hero/banner_women-laptop.jpg);
   }
   @include tablet {
     height: 338px;
     margin-bottom: 24px;
-    background-image: url(../img/hero/banner-women-tablet.jpg);
+    // background-image: url(../img/hero/banner-women-tablet.jpg);
   }
   @include mobile {
     height: 200px;
     margin-bottom: 24px;
-    background-image: url(../img/hero/banner-women-mobile.jpg);
+    // background-image: url(../img/hero/banner-women-mobile.jpg);
   }
 
-  &_women {}
-  &_men {}
+  &_women {
+    background-image: url(../img/hero/hero_banner_women_desktop-1440_450.jpg);
+    border: 1px solid blue;
+    
+    @include laptop {
+      background-image: url(../img/hero/hero_banner_women_laptop-1024_450.jpg);
+      border: 1px solid darkviolet;
+    }
+    @include tablet {
+      background-image: url(../img/hero/hero_banner_women_tablet-768_338.jpg);
+      border: 1px solid orangered;
+    }
+    @include mobile {
+      background-image: url(../img/hero/hero_banner_women_mobile1-320_200.jpg);
+      border: 1px solid lawngreen;
+    }
+  }
+  &_men {
+    background-image: url(../img/hero/hero_banner_men_desktop.jpg);
+    border: 1px solid cyan;
+    
+    @include laptop {
+      background-image: url(../img/hero/hero_banner_men_laptop.jpg);
+      border: 1px solid darkviolet;
+    }
+    @include tablet {
+      background-image: url(../img/hero/hero_banner_men_tablet.jpg);
+      border: 1px solid orangered;
+    }
+    @include mobile {
+      background-image: url(../img/hero/hero_banner_men_mobile.jpg);
+      border: 1px solid lawngreen;
+    }
+  }
 
   &_container {
     display: flex;
