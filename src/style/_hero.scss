@@ -8,26 +8,26 @@
 
   background-position: center;
   background-size: cover;
-  background-image: url(../img/hero/banner_women.jpg);
+  // background-image: url(../img/hero/banner_women.jpg);
   // border: 1px solid blue;
 
   @include laptop {
     height: 338px;
     margin-bottom: 24px;
     // background-image: url(../img/hero/banner_women-laptop.jpg);
-    border: 1px solid darkviolet;
+    // border: 1px solid darkviolet;
   }
   @include tablet {
     height: 338px;
     margin-bottom: 24px;
     // background-image: url(../img/hero/banner-women-tablet.jpg);
-    border: 1px solid orangered;
+    // border: 1px solid orangered;
   }
   @include mobile {
     height: 200px;
     margin-bottom: 24px;
     // background-image: url(../img/hero/banner-women-mobile.jpg);
-    border: 1px solid lawngreen;
+    // border: 1px solid lawngreen;
   }
 
   &_women {
@@ -57,7 +57,7 @@
     }
   }
 
-  &_container {
+  &__container {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
