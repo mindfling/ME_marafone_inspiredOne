@@ -4,6 +4,7 @@
 https://youtu.be/o8KMucDpSno
 
 Для установки пакетов используйте команду npm install
+`npm install` или `npm i`
 
 ## Команды
 
@@ -65,3 +66,9 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 
 
 # github init
+
+https://github.com/mindfling/ME_marafone_inspiredOne.git
+https://github.com/mindfling/ME_marafone_inspiredOne
+
+https://mindfling.github.io/inspired
+https://mindfling.github.io/
