@@ -8,6 +8,8 @@
     color: $main_color;
     text-align: center;
     text-transform: uppercase;
+    font-style: normal;
+    font-weight: 400;
     font-size: 32px;
     line-height: 39px;
     padding-bottom: 25px;
@@ -27,10 +29,8 @@
   &__item {
     display: flex;
     width: 280px;
-    // height: 487px;
     @include tablet {
       width: 140px;
-      // height: 275px;
     }
   }
   &__list {
@@ -40,6 +40,7 @@
     // grid-template-columns: repeat(4, 1fr);
     grid-template-columns: repeat(auto-fill, 280px);
     justify-content: space-evenly;
+    // justify-content: space-between;
     @include tablet {
       // gap: 24px 20px;
       row-gap: 24px;

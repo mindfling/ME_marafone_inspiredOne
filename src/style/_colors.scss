@@ -1,0 +1,38 @@
+.color {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    outline: 1px solid #929292;
+    outline-offset: 3px;
+  }
+  &_check {
+    outline: 1px solid #929292;
+    outline-offset: 3px;
+    &:hover {
+      outline: none;
+    }
+  }
+  &_black {
+    background-color: black;
+    border: 1px solid #000;
+  }
+  &_red {
+    background-color: red;
+    border: 1px solid red;
+  }
+  &_white {
+    background-color: white;
+    border: 1px solid black;
+  }
+  &_blue {
+    background-color: royalblue;
+    border: 1px solid royalblue;
+  }
+  &_green {
+    background-color: darkgreen;
+    border: 1px solid darkgreen;
+  }
+}
