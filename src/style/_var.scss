@@ -12,9 +12,17 @@ $dark_grey: #404040;
 
 
 // * media max-width mixin
+$laptop-footer: 1239px;
 $laptop: 1024px;
 $tablet: 768px;
 $mobile: 540px;
+
+// специально для глюка в футере
+@mixin lapfoot {
+  @media (max-width: #{$laptop-footer}) {
+    @content;
+  }
+}
 
 // * global media mixin
 @mixin laptop {
