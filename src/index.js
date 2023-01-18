@@ -1,7 +1,14 @@
 import './index.html';
 import './index.scss';
 
-console.log('Hi')
+import { mainPage } from './modules/render/mainPage/mainPage';
+import { renderHeader } from './modules/render/renderHeader';
+
+
+renderHeader();
+mainPage();
+renderFooter();
+
 
 // * обработка кнопки добавить в избранное
 const btnFavList = document.querySelectorAll('.product__btn-favorite');
