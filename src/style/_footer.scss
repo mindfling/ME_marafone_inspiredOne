@@ -18,13 +18,6 @@
   
   &__container {
     display: block;
-    // border: 1px solid lawngreen;
-    // border-top: 1px solid $light_grey;
-
-    // display: grid;
-    // grid-template-areas:  "cat soc cont" "copy . dev";
-    // grid-column-gap: 90px;
-    // grid-row-gap: 26px;
 
     @include tablet {
     }
@@ -35,12 +28,19 @@
   &__inner {
     border: 1px solid transparent;
     border-top-color: $light_gray;
+    padding-top: 51px;
     width: 100%;
     display: grid;
-    grid-template-areas:  "cat soc cont" "copy . dev";
-    grid-column-gap: 90px;
+    grid-auto-columns: (280px 1fr 280px);
+    grid-template-areas:  "cat soc cont"
+                          "copy . dev";
+    grid-column-gap: 20px;
     grid-row-gap: 26px;
-    padding-top: 51px;
+    justify-content: space-evenly;
+    // justify-content: space-between; // ?
+    @media (max-width: 1262px) {
+      grid-auto-columns: (280px 280px 280px);
+    }
   }
 
   &__item {
@@ -52,6 +52,10 @@
 
     &_social {
       grid-area: soc;
+      justify-self: center;
+      @media (max-width: 1262px) {
+        justify-self: start;
+      }
     }
 
     &_contacts {
@@ -80,21 +84,26 @@
     font-size: 18px;
     line-height: 22px;
     text-transform: uppercase;
-    color: #000000;
-    margin-bottom: 24px;
+  }
+
+  &-copyright,
+  &-development {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 130%;
   }
 }
 
 .footer-category {
+  &__title {
+    margin-bottom: 24px;
+  }
   &__item {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
     gap: 10px;
-  }
-  &__title {
-
   }
   &__list {
     display: flex;
@@ -120,21 +129,37 @@
 }
 
 .footer-social {
-  // border: 1px solid magenta;
+  &__title {
+    margin-bottom: 16px; // ?24px?
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 20px;
+  }
+  &__list {
+    display: flex;
+    gap: 10px;
+  }
   &__item {}
   &__link {
     display: block;
     &:hover {
-      color: darkmagenta;
+      color: $dark_gray;
     }
   }
-  &__list {}
-  &__subtitle {}
-  &__title {}
 }
 
 .footer-contacts {
-  &__email {}
+  &__email {
+    margin-bottom: 16px;
+  }
+  &__link {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;    
+  }
   &__link {}
   &__phone {}
 }
@@ -146,20 +171,15 @@
 }
 
 .footer-development {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
   &__item {
 
   }
   &__list {
     display: block;
-  }
-}
-
-.footer {
-  &-copyright,
-  &-development {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 130%;
   }
 }
