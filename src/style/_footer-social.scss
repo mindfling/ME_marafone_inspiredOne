@@ -1,0 +1,33 @@
+.footer-social {
+  &__title {
+    margin-bottom: 16px; // ?24px?
+    @include mobile {
+      margin-bottom: 8px;
+    }
+  }
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    margin-bottom: 20px;
+    @include laptop {
+      
+    }
+    @include tablet {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 16px;
+    }
+  }
+  &__list {
+    display: flex;
+    gap: 10px;
+  }
+  &__item {}
+  &__link {
+    display: block;
+    &:hover {
+      color: $dark_gray;
+    }
+  }
+}

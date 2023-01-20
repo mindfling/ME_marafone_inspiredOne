@@ -1,0 +1,37 @@
+.footer-contacts {
+  &__email {
+    font-weight: 400;
+    margin-bottom: 16px;
+    @include laptop {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    @include tablet {
+      font-size: 14px;
+      line-height: 17px;
+      margin-bottom: 21px;
+    }
+    @include mobile {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 9px;
+    }
+  }
+  &__phone {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    @include tablet {
+      font-size: 14px;
+      line-height: 17px;
+    }
+    @include mobile {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+  }
+  
+  &__link {
+  }
+}

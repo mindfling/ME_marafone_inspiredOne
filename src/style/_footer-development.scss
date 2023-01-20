@@ -1,0 +1,13 @@
+.footer-development {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  &__item {
+
+  }
+  &__list {
+    display: block;
+  }
+}

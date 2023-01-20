@@ -6,8 +6,8 @@ import { renderHeader } from './modules/render/renderHeader';
 
 
 renderHeader();
-mainPage();
-renderFooter();
+// mainPage();
+// renderFooter();
 
 
 // * обработка кнопки добавить в избранное
