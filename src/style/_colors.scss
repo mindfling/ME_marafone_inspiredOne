@@ -1,18 +1,22 @@
 .color {
   display: block;
-  width: 12px;
-  height: 12px;
+  width: 18px;
+  height: 18px;
   border-radius: 50%;
   cursor: pointer;
+  outline-offset: 3px;
+  outline: 0.4px solid transparent;
+  @include tablet {
+    width: 12px;
+    height: 12px;
+  }
   &:hover {
-    outline: 1px solid #929292;
-    outline-offset: 3px;
+    outline: 0.4px solid $dim_grey;
   }
   &_check {
-    outline: 1px solid #929292;
-    outline-offset: 3px;
+    outline: 0.4px solid $dim_grey;
     &:hover {
-      outline: none;
+      outline: 0.4px solid transparent;
     }
   }
   &_black {

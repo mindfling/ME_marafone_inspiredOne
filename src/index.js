@@ -11,9 +11,17 @@ renderHeader();
 
 
 // * обработка кнопки добавить в избранное
-const btnFavList = document.querySelectorAll('.product__btn-favorite');
 
 document.addEventListener('DOMContentLoaded', event => {
+  const btnFavList = document.querySelectorAll('.product__btn-favorite');
+  const goods = document.querySelector('.goods');
+
+  goods.addEventListener('click', (e) => {
+    if (e.target.classList.contains('color')) {
+      console.log('color')
+      e.target.classList.toggle('color_check');
+    }
+  });
 
   btnFavList.forEach(btn => {
     btn.addEventListener('click', (e) => {
