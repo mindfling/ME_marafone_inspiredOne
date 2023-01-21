@@ -93,17 +93,37 @@ iframe {
   padding: 0 var(--padding);
   margin: 0 auto;
 
-  @include laptop {
+  @media (max-width: 1024px) {
     --max-width: 880px;
   }
-  @include tablet {
+  @media (max-width: 768px) {
     --max-width: 620px;
   }
-  @include mobile {
+  @media (max-width: 540px) {
     --padding: 15px;
   }
   // border: 1px solid lawngreen;
 }
+
+.main {
+  padding-bottom: 120px;
+  // border: 1px solid royalblue;
+
+  @media (max-width: 1024px) {
+    // border: 1px solid lawngreen;
+  }
+
+  @media (max-width: 768px) {
+    padding-bottom: 80px;
+    // border: 1px solid orange;
+  }
+
+  @media (max-width: 540px) {
+    padding-bottom: 60px;
+    // border: 1px solid magenta;
+  }
+}
+
 
 // * dim selection color
 ::selection {
