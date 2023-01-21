@@ -36,22 +36,20 @@
   &__list {
     padding-top: 40px;
     display: grid;
-    gap: 40px 20px;
-    // grid-template-columns: repeat(4, 1fr);
+    // gap: 40px 10px;
+    row-gap: 40px;
     grid-template-columns: repeat(auto-fill, 280px);
+    justify-content: space-between;
     justify-content: space-evenly;
-    // justify-content: space-between;
     @include tablet {
       // gap: 24px 20px;
       row-gap: 24px;
       padding-top: 24px;
-      padding-bottom: 80px;
       grid-template-columns: repeat(auto-fill, 140px);
     }
     @include mobile {
       gap: 16px 10px;
       padding-top: 16px;
-      padding-bottom: 60px;
     }
   }
 }
