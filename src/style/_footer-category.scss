@@ -1,4 +1,5 @@
 .footer-category {
+
   &__title {
     margin-bottom: 24px;
     @include tablet {
@@ -8,17 +9,21 @@
       margin-bottom: 8px;
     }
   }
+
   &__list {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     column-gap: 80px;
+    @include laptop {
+      gap: 30px;
+    }
     @include tablet {
-      display: flex;
       flex-direction: column;
       gap: 7px;
     }
   }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -26,19 +31,19 @@
     align-items: flex-start;
     gap: 10px;
   }
+
   &__subtitle {
-    font-style: normal;
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
-    margin-bottom: 10px;
+    margin-bottom: 10px; // ?
     @include tablet {
       font-size: 12px;
       line-height: 15px;
+      margin: 0;
     }
   }
-  &__subitem {
-  }
+
   &__sublist {
     display: flex;
     flex-direction: column;
@@ -49,4 +54,12 @@
       display: none;
     }
   }
+  // ? for block
+  &__subitem {
+    // margin-bottom: 6px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
 }

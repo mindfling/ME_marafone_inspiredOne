@@ -5,29 +5,42 @@
       margin-bottom: 8px;
     }
   }
+
   &__subtitle {
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
     margin-bottom: 20px;
-    @include laptop {
-      
-    }
     @include tablet {
       font-size: 12px;
       line-height: 15px;
       margin-bottom: 16px;
     }
   }
+
   &__list {
     display: flex;
     gap: 10px;
   }
+
   &__item {}
+
   &__link {
     display: block;
+    transition: color 300ms ease-in-out;
+    color: #000;
     &:hover {
-      color: $dark_gray;
+      color: $dark_gray; // ?
+    }
+    &_tg:hover {
+      color: #229ED9;
+    }
+    &_vk:hover {
+      color: #0077ff;
+    }
+    &_fb:hover {
+      color: #3b5998;
     }
   }
+
 }
