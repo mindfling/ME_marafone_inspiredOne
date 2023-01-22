@@ -5,7 +5,7 @@ import { mainPage } from './modules/render/mainPage/mainPage';
 import { renderHeader } from './modules/render/renderHeader';
 
 
-renderHeader();
+// renderHeader();
 // mainPage();
 // renderFooter();
 
