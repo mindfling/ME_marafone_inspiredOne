@@ -1,12 +1,13 @@
 .category {
-  padding: 24px 0 12px;
+  padding: 24px 0 12px; // ?
+  // border: 1px solid royalblue;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin: 0 auto;
   max-width: 962px; // laptop
   width: 100%;
-  gap: 15px; // minimal gap
+  // gap: 15px; // minimal gap // ?
 
   font-weight: 400;
   font-size: 14px;
@@ -19,18 +20,23 @@
     line-height: 15px;
   }
   @include mobile {
-    gap: 10px 30px;
+    // gap: 10px 30px;
+    row-gap: 10px;
+    column-gap: 15px;
     font-size: 10px;
     line-height: 12px;
     justify-content: flex-start;
   }
 
+  &__item {
+    // border: 1px solid lawngreen;
+  }
+
   &__link {
+    display: block;
+    // border: 1px solid magenta;
     position: relative;
     transition: color 300ms ease-in-out; // link color
-    // transition-property: color transform;
-    // transition-duration: 500ms;
-    // transition-timing-function: ease-in-out;
     
     &::after {
       content: '';
@@ -42,8 +48,6 @@
       transition-property: color transform opacity;
       transition-duration: 300ms;
       transition-timing-function: ease-in-out;
-      // transition: transform 300ms ease-in-out; // link:after transform
-      // transform: translate(-50%, 0);
       transform: translate(-50%, 0) scale(0, 1);
       background-color: $main_color;
       opacity: 0;
