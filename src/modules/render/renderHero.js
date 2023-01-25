@@ -4,6 +4,8 @@ import { createElement } from "../createElement";
 
 export const renderHero = gender => {
   const hero = document.querySelector ('.hero');
+  hero.innerHTML = ''; // todo
+
   // * initial value women
   hero.classList.remove('hero_women'); // todo
   hero.classList.remove('hero_men'); // todo
