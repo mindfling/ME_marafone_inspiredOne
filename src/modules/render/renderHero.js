@@ -5,9 +5,10 @@ import { createElement } from "../createElement";
 export const renderHero = gender => {
   const hero = document.querySelector ('.hero');
   // * initial value women
+  hero.classList.remove('hero_women'); // todo
+  hero.classList.remove('hero_men'); // todo
   hero.classList.add('hero_' + gender);
   console.log ('render hero for:', gender, hero);
-  console.log(container)
   
   const content = createElement('',
     {
@@ -26,7 +27,7 @@ export const renderHero = gender => {
         createElement('a',
           {
             className: 'hero__link',
-            href: '#men', // todo
+            href: '#women', // todo
             title: 'перейти по временной ссылке', 
           },
           {
@@ -37,7 +38,7 @@ export const renderHero = gender => {
     }
   );
 
-  const container = createElement('',
+  createElement('',
     { className: 'container hero__container' },
     { 
       append: content,
@@ -46,16 +47,3 @@ export const renderHero = gender => {
   );
 
 };
-
-  // hero.classList.add('hero_men');
-
-  /*
-  hero.innerHTML = `
-  <div class="container hero__container">
-    <div class="hero__content">
-      <h2 class="hero__title">Новая коллекция Зимней одежды для женщин</h2>
-      <a href="#" class="hero__link">Перейти</a>
-    </div>
-  </div>
-  `;
-  */

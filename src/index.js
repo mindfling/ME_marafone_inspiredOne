@@ -11,6 +11,7 @@ import { menMainPage } from './modules/mainPage/menMainPage';
 
 
 router.on('*', () => {
+  console.warn('alll ', 1010)
   console.log('* begin all pages at * render deft header footer')
   renderHeader();
   renderFooter();
@@ -18,26 +19,32 @@ router.on('*', () => {
 });
 
 router.on('/', () => {
+  console.warn('root ', 1111)
   console.log('/ beg root page')
-  mainPage('women');
+  // mainPage('women');
+  womenMainPage();
   console.log('/ end root page')
 });
 
-// router.on('women', () => {
-//   console.log('women')
-//   womenMainPage();
-// });
+router.on('women', () => {
+  console.log('women')
+  womenMainPage();
+});
 
-// router.on('men', () => {
-//   console.log('men')
-//   menMainPage();
-// });
+router.on('men', () => {
+  console.log('men')
+  menMainPage();
+});
 
 
-// setTimeout(() => {
-//   router.navigate('women');
-//   console.log('goto women page')
-// }, 5000);
+router.on('cart', () => {
+  console.log('go to cart goods')
+});
+
+router.on('fav', () => {
+  console.log('go to favorite goods')
+});
+
 
 router.resolve();
 
@@ -49,18 +56,19 @@ router.resolve();
 
 // * обработка кнопки добавить в избранное
 
+/*
 document.addEventListener ('DOMContentLoaded', event => {
-const btnFavList = document.querySelectorAll('.product__btn-favorite');
-const goods = document.querySelector('.goods');
+  const btnFavList = document.querySelectorAll('.product__btn-favorite');
+  const goods = document.querySelector('.goods');
 
-const genderLinks = document.querySelectorAll('.gender__link');
-const categoryLinks = document.querySelectorAll('.category__link');
+  const genderLinks = document.querySelectorAll('.gender__link');
+  const categoryLinks = document.querySelectorAll('.category__link');
 
-const genders = ['women', 'men'];
-const genderHeroTitles = {
-  women: 'Новая коллекция зимней женской одежды',
-  men: 'Новая коллекция зимней одежды для мужчин',
-};
+  const genders = ['women', 'men'];
+  const genderHeroTitles = {
+    women: 'Новая коллекция зимней женской одежды',
+    men: 'Новая коллекция зимней одежды для мужчин',
+  };
 
 // * simple click on gender
 genderLinks.forEach(link => {
@@ -117,3 +125,4 @@ btnFavList.forEach(btn => {
   });
 });
 });
+*/

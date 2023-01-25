@@ -12,7 +12,7 @@ export const renderFooter = () => {
     <ul class="footer-category__list">
       <li class="footer-category__item">
         <h3 class="footer-category__subtitle">
-          <a href="#" class="footer__link">Женский</a>
+          <a href="#/women" class="footer__link">Женский</a>
         </h3>
         <ul class="footer-category__sublist">
           <li class="footer-category__subitem">
@@ -37,7 +37,7 @@ export const renderFooter = () => {
       </li>
       <li class="footer-category__item">
         <h3 class="footer-category__subtitle">
-          <a href="#" class="footer__link">Мужчины</a>
+          <a href="#/men" class="footer__link">Мужчины</a>
         </h3>
         <ul class="footer-category__sublist">
           <li class="footer-category__subitem">
