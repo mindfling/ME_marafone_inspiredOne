@@ -10,10 +10,10 @@ export const renderHero = gender => {
   }
 
   const hero = document.querySelector ('.hero');
-  hero.innerHTML = ''; // todo
+  hero.innerHTML = '';
   // initial value women
-  hero.classList.remove('hero_women'); // todo
-  hero.classList.remove('hero_men'); // todo
+  hero.classList.remove('hero_women');
+  hero.classList.remove('hero_men');
   hero.classList.add('hero_' + gender);
   console.log ('render hero for:', gender, hero);
   

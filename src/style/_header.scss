@@ -36,6 +36,11 @@
     display: block;
     transition: color 300ms ease-in-out;
     cursor: pointer;
+    &_logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
   }
   &__link:hover {
     color: $gray;

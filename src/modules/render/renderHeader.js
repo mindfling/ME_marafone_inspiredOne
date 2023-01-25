@@ -2,7 +2,6 @@
 import {createElement} from '../createElement';
 import logo from '../../img/logo.svg';
 
-
 export const searchButton = createElement ('button', {
   className: 'header__link',
   title: 'Кнопка Поиска товаров',
@@ -37,24 +36,32 @@ export const favoriteLink = createElement ('a', {
     `,
 });
 
+// const container = createElement ('div',
+//   {
+//     className: 'container header__container',
+//     innerHTML: `
+//       <a class="header__phone header__link" href="tel:89001231234" title="Позвонить на горячую линию магазина">8&nbsp;930&nbsp;490&nbsp;26&nbsp;20</a>
+//       <img class="header__logo" src="${logo}" alt="Logo Inspired" title="Inspired Logo" />
+//     `,
+//   },
+// );
 
-  const container = createElement ('div',
-    {
-      className: 'container header__container',
-      innerHTML: `
-        <a class="header__phone header__link" href="tel:89001231234" title="Позвонить на горячую линию магазина">8&nbsp;930&nbsp;490&nbsp;26&nbsp;20</a>
-        <img class="header__logo" src="${logo}" alt="Logo Inspired" title="Inspired Logo" />
-      `,
-    },
-  );
+export const renderHeader = () => {
+  // const header = document.querySelector ('.header');
+  // header.innerHTML = ''; // todo
+  const container = document.querySelector ('.header__container');
+  // header.append (container);
+  container.innerHTML = `
+    <a class="header__phone header__link" href="tel:89001231234" title="Позвонить на горячую линию магазина">8&nbsp;930&nbsp;490&nbsp;26&nbsp;20</a>
+    <a href="/" class="header__link header__link_logo">
+      <img class="header__logo" src="${logo}" alt="Logo Inspired" title="Inspired Logo" />
+    </a>
+  `;
+  console.log ('container: ', container);
 
   const nav = createElement ('div',
-    {
-      className: 'header__navigation',
-    },
-    {
-      parent: container,
-    },
+    { className: 'header__navigation' },
+    { parent: container }
   );
 
   createElement ('ul',
@@ -64,24 +71,14 @@ export const favoriteLink = createElement ('a', {
     {
       parent: nav,
       // заворачиваем в обертку
-      appends: [searchButton, cartLink, favoriteLink].map ((elem) =>
-        createElement ('li',
-          { 
-            className: 'header__nav-item',
-          },
-          { 
-            append: elem,
-          },
-      )),
+      appends: [searchButton, cartLink, favoriteLink].map (elem =>
+        createElement (
+          'li',
+          { className: 'header__nav-item' },
+          { append: elem }
+        )
+      ),
     }
   );
 
-export const renderHeader = () => {
-
-  const header = document.querySelector ('.header');
-  console.log ('render header: ', header);
-
-  header.innerHTML = ''; // todo
-
-  header.append(container);
 };

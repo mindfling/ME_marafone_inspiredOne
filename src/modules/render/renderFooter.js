@@ -5,8 +5,8 @@ import { createElement } from "../createElement";
 const footer = document.querySelector('.footer');
 const footerContainer = footer.querySelector('.footer__container');
 
+
 export const renderFooter = () => {
-  console.log('render footer: ', footer);
   console.log('footerContainer: ', footerContainer);
 
   while (footerContainer.lastChild) {
@@ -146,7 +146,7 @@ export const renderFooter = () => {
     }
   );
 
-  const footer = createElement('ul',
+  const footerDevelopment = createElement('ul',
     {
       className: 'footer__item footer__item_development footer-development',
       innerHTML: `
