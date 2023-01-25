@@ -39,39 +39,6 @@ export const favoriteLink = createElement ('a', {
 });
 
 
-// createElement('ul',
-//     {
-//       className: 'header__nav-list',
-//     },
-//     {
-//       appends: [
-//         createElement('li',
-//           {
-//             className: 'header__nav-item',
-//           },{
-//             append: searchButton,
-//           }
-//         ),
-//         createElement('li',
-//           {
-//             className: 'header__nav-item',
-//           },{
-//             append: cartLink,
-//           }
-//         ),
-//         createElement('li',
-//           {
-//             className: 'header__nav-item',
-//           },{
-//             append: favoriteLink,
-//           }
-//         ),
-//       ],
-//     }
-//   ),
-// }
-// );
-
 // * container во вне и частично статический
   const container = createElement ('div',
     {
@@ -81,10 +48,6 @@ export const favoriteLink = createElement ('a', {
         <img class="header__logo" src="${logo}" alt="Logo Inspired" title="Inspired Logo" />
       `,
     },
-    {
-      // parent: header,
-      // append: nav,
-    }
   );
 
   const nav = createElement ('div',
@@ -103,7 +66,6 @@ export const favoriteLink = createElement ('a', {
           appends: [searchButton, cartLink, favoriteLink].map ((elem, i) =>
             createElement ('li',
               {
-                title: `elem ${i}`, // todo
                 className: 'header__nav-list',
               },
               {

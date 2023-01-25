@@ -1,4 +1,4 @@
-// * NAVIGATION
+// * NAVIGATION top nav
 
 export const renderNav = (gender) => {
   const nav = document.querySelector('.navigation');
@@ -8,10 +8,10 @@ export const renderNav = (gender) => {
   <div class="container navigation__container">
     <ul class="navigation__gender gender">
       <li class="gender__item">
-        <a href="#women" class="gender__link gender__link_active" data-gender="women">Женщины</a>
+        <a href="#women" class="${(gender === 'women') ? 'gender__link gender__link_active' : 'gender__link'}" data-gender="women">Женщины</a>
       </li>
       <li class="gender__item">
-        <a href="#men" class="gender__link" data-gender="men">Мужчины</a>
+        <a href="#men" class="gender__link${(gender === 'men') ? ' gender__link_active' : ''}" data-gender="men">Мужчины</a>
       </li>
     </ul>
     <ul class="navigation__category category">

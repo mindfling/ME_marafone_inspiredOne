@@ -1,6 +1,7 @@
 export const dataNavigation = {
   women: {
     title: 'Женское',
+    slug: 'women',
     list: [
       {
         title: 'Бюстгальтеры',
@@ -30,6 +31,7 @@ export const dataNavigation = {
   },
   men: {
     title: 'Мужское',
+    slug: 'men',
     list: [
       {
         title: 'Нижнее бельё',

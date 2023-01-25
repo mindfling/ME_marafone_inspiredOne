@@ -8,10 +8,19 @@ import { mainPage } from './modules/mainPage/mainPage';
 import { renderFooter } from './modules/render/renderFooter';
 import { womenMainPage } from './modules/mainPage/womenMainPage';
 import { menMainPage } from './modules/mainPage/menMainPage';
+import { dataNavigation } from './modules/navigation';
 
+console.log(dataNavigation)
+const gender = 'women'
+console.log(dataNavigation[gender])
+console.log(dataNavigation[gender].slug)
+console.log(dataNavigation[gender].list)
+const list = dataNavigation[gender].list;
+for (const val of list) {
+  console.log(val.slug)
+}
 
 router.on('*', () => {
-  console.warn('alll ', 1010)
   console.log('* begin all pages at * render deft header footer')
   renderHeader();
   renderFooter();
@@ -19,9 +28,8 @@ router.on('*', () => {
 });
 
 router.on('/', () => {
-  console.warn('root ', 1111)
+  // console.warn('root ', 1111)
   console.log('/ beg root page')
-  // mainPage('women');
   womenMainPage();
   console.log('/ end root page')
 });
