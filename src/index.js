@@ -5,6 +5,7 @@ import { router } from './modules/router/router';
 
 import { renderHeader } from './modules/render/renderHeader';
 import { renderFooter } from './modules/render/renderFooter';
+
 import { mainPage } from './modules/mainPage/mainPage';
 import { womenMainPage } from './modules/mainPage/womenMainPage';
 import { menMainPage } from './modules/mainPage/menMainPage';
@@ -42,14 +43,8 @@ router.on('fav', () => {
   console.log('#fav go to favorite goods')
 });
 
-
 router.resolve();
 
-
-// * init() initial mainPage stay
-// renderHeader();
-// mainPage();
-// renderFooter();
 
 // * обработка кнопки добавить в избранное
 
