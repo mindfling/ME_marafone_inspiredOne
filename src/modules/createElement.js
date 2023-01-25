@@ -1,4 +1,4 @@
-export const createElement = (tag, attr, {append, appends, parent, callback, text} = {}) => {
+export const createElement = (tag = '', attr = {}, {append, appends, parent, callback, text} = {}) => {
   if (typeof tag === 'string') {
     if (tag === '') {
       tag = 'div';
@@ -8,7 +8,6 @@ export const createElement = (tag, attr, {append, appends, parent, callback, tex
   }
   const element = document.createElement(tag);
   
-
   if (attr) {
     Object.assign(element, attr);
   }
@@ -30,7 +29,6 @@ export const createElement = (tag, attr, {append, appends, parent, callback, tex
   }
 
   if (text && typeof text === 'string') {
-    console.log('STRING TEXT')
     element.textContent = text;
   }
 
