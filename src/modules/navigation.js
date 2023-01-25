@@ -1,14 +1,14 @@
 export const dataNavigation = {
   women: {
-    title: 'Женское',
+    title: 'Женщины',
     slug: 'women',
     list: [
       {
-        title: 'Бюстгальтеры',
-        slug: 'bras',
+        title: 'Куртки',
+        slug: 'jackets',
       },
       {
-        title: 'Трусы',
+        title: 'Брюки',
         slug: 'panties',
       },
       {
@@ -30,12 +30,16 @@ export const dataNavigation = {
     ],
   },
   men: {
-    title: 'Мужское',
+    title: 'Мужчины',
     slug: 'men',
     list: [
       {
-        title: 'Нижнее бельё',
-        slug: 'underwear',
+        title: 'Куртки',
+        slug: 'jackets',
+      },
+      {
+        title: 'Рубашки',
+        slug: 'shirts',
       },
       {
         title: 'Носки',
@@ -51,4 +55,11 @@ export const dataNavigation = {
       },
     ],
   },
+};
+
+export const genders = ['women', 'men'];
+
+export const heroTitles = {
+  women: 'Новая коллекция зимней женской одежды',
+  men: 'Новая коллекция зимней одежды для мужчин',
 };

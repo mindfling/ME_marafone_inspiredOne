@@ -4,22 +4,11 @@ import './index.scss';
 import { router } from './modules/router/router';
 
 import { renderHeader } from './modules/render/renderHeader';
-import { mainPage } from './modules/mainPage/mainPage';
 import { renderFooter } from './modules/render/renderFooter';
+import { mainPage } from './modules/mainPage/mainPage';
 import { womenMainPage } from './modules/mainPage/womenMainPage';
 import { menMainPage } from './modules/mainPage/menMainPage';
 
-import { dataNavigation } from './modules/navigation';
-
-// console.log(dataNavigation)
-// const gender = 'women'
-// console.log(dataNavigation[gender])
-// console.log(dataNavigation[gender].slug)
-// console.log(dataNavigation[gender].list)
-// const list = dataNavigation[gender].list;
-// for (const val of list) {
-//   console.log(val.slug)
-// }
 
 router.on('*', () => {
   console.log('* begin all pages at * render deft header footer')
@@ -29,9 +18,8 @@ router.on('*', () => {
 });
 
 router.on('/', () => {
-  // console.warn('root ', 1111)
   console.log('/ beg root page')
-  womenMainPage();
+  womenMainPage(); // default main page
   console.log('/ end root page')
 });
 
@@ -47,11 +35,11 @@ router.on('men', () => {
 
 
 router.on('cart', () => {
-  console.log('go to cart goods')
+  console.log('#cart go to cart goods')
 });
 
 router.on('fav', () => {
-  console.log('go to favorite goods')
+  console.log('#fav go to favorite goods')
 });
 
 

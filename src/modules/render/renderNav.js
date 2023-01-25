@@ -4,9 +4,17 @@ import { createElement } from "../createElement";
 import { dataNavigation } from "../navigation";
 
 export const renderNav = (gender) => {
+  if (!gender) {
+    console.log('empty gender nav')
+    return;
+  }
 
   const nav = document.querySelector('.navigation');
-  nav.innerHTML = ''; // todo
+  // nav.innerHTML = '';
+  // todo initial clear 
+  while (nav.lastChild) {
+    nav.lastChild.remove();
+  }
 
   const navigationGender = createElement('ul',
     {
@@ -14,7 +22,7 @@ export const renderNav = (gender) => {
     },
     {
       appends: [...Object.keys(dataNavigation).map(key => {
-          console.log(key)
+          // console.log(key)
           return createElement('a',
             {
               href: '#' + key,
@@ -26,7 +34,7 @@ export const renderNav = (gender) => {
                 element.dataset.gender = key;
               },
             }
-          )
+          );
         }).map(elem => createElement('li',
           {
             className: 'gender__item',
@@ -39,6 +47,33 @@ export const renderNav = (gender) => {
     }
   );
 
+  const navigationCategory = createElement('ul',
+    {
+      className: 'navigation__category category',
+    },
+    {
+      appends: dataNavigation[gender].list.map(item => createElement('li',
+        {
+          className: 'category__item',
+          // textContent: item.title,
+        },
+        {
+          append: createElement('a',
+            {
+              className: 'category__link',
+            },
+            {
+              text: item.title,
+              callback: elem => {
+                elem.dataset.slug = item.slug;
+              },
+            }
+          ),
+        }
+      ))
+    }
+  );
+
 
   const container = createElement('',
     {
@@ -46,8 +81,10 @@ export const renderNav = (gender) => {
     },
     {
       parent: nav,
-      // append: navigationGender,
-      appends: [navigationGender, ],
+      appends: [
+        navigationGender,
+        navigationCategory
+      ],
     }
   );
 

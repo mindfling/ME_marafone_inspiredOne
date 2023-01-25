@@ -1,6 +1,5 @@
 // * header
 import {createElement} from '../createElement';
-// * here import const logo file as if by default
 import logo from '../../img/logo.svg';
 
 
@@ -39,7 +38,6 @@ export const favoriteLink = createElement ('a', {
 });
 
 
-// * container во вне и частично статический
   const container = createElement ('div',
     {
       className: 'container header__container',
@@ -56,31 +54,34 @@ export const favoriteLink = createElement ('a', {
     },
     {
       parent: container,
-      append: createElement (
-        'ul',
-        {
-          className: 'header__nav-list',
-        },
-        {
-          // * разворачиваем в обертку
-          appends: [searchButton, cartLink, favoriteLink].map ((elem, i) =>
-            createElement ('li',
-              {
-                className: 'header__nav-list',
-              },
-              {
-                append: elem,
-              }
-            )),
-        }
-      ),
+    },
+  );
+
+  createElement ('ul',
+    {
+      className: 'header__nav-list',
+    },
+    {
+      parent: nav,
+      // заворачиваем в обертку
+      appends: [searchButton, cartLink, favoriteLink].map ((elem) =>
+        createElement ('li',
+          { 
+            className: 'header__nav-item',
+          },
+          { 
+            append: elem,
+          },
+      )),
     }
   );
 
-
 export const renderHeader = () => {
+
   const header = document.querySelector ('.header');
   console.log ('render header: ', header);
+
   header.innerHTML = ''; // todo
+
   header.append(container);
 };

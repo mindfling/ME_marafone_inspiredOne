@@ -1,12 +1,17 @@
 // * hero
 import { createElement } from "../createElement";
+import { heroTitles } from "../navigation";
 
 
 export const renderHero = gender => {
+  if (!gender) {
+    console.log('empty gender hero')
+    return;
+  }
+
   const hero = document.querySelector ('.hero');
   hero.innerHTML = ''; // todo
-
-  // * initial value women
+  // initial value women
   hero.classList.remove('hero_women'); // todo
   hero.classList.remove('hero_men'); // todo
   hero.classList.add('hero_' + gender);
@@ -23,13 +28,13 @@ export const renderHero = gender => {
             className: 'hero__title',
           },
           {
-            text: 'Новая коллекция Зимней одежды',
+            text: heroTitles[gender],
           }
         ),
         createElement('a',
           {
             className: 'hero__link',
-            href: '#women', // todo
+            href: '#', // todo
             title: 'перейти по временной ссылке', 
           },
           {
@@ -40,7 +45,7 @@ export const renderHero = gender => {
     }
   );
 
-  createElement('',
+  const container = createElement('',
     { className: 'container hero__container' },
     { 
       append: content,
