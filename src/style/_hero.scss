@@ -66,15 +66,15 @@
     height: 100%;
   }
   &__content {
-    max-width: 590px;
+    max-width: 650px;
     padding: 172px 0 86px;
     @include tablet {
-      max-width: 410px;
+      max-width: 440px;
       padding: 156px 0 50px;
     }
     @include mobile {
+      max-width: 295px;
       padding: 76px 0 24px;
-      max-width: 290px;
     }
   }
   &__title {

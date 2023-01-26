@@ -12,9 +12,6 @@ export const renderHero = gender => {
   const hero = document.querySelector ('.hero');
   const heroContainer = document.querySelector('.hero__container');
   heroContainer.innerHTML = '';
-  // initial value women
-  // hero.classList.remove('hero_women');
-  // hero.classList.remove('hero_men');
   hero.classList.remove('hero_women', 'hero_men');
   hero.classList.add('hero_' + gender);
   console.log ('render hero for:', gender, hero);
@@ -37,7 +34,7 @@ export const renderHero = gender => {
         createElement('a',
           {
             className: 'hero__link',
-            href: '#' + gender, // todo
+            href: `#/${gender}`, // todo
             title: 'Перейти по ссылке на страницу ' + heroTitles[gender], 
           },
           {

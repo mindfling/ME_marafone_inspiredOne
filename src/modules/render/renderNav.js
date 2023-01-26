@@ -11,9 +11,11 @@ export const renderNav = (gender) => {
 
   const nav = document.querySelector('.navigation');
   // nav.innerHTML = '';
+  const container = document.querySelector('.navigation__container');
+
   // todo initial clear 
-  while (nav.lastChild) {
-    nav.lastChild.remove();
+  while (container.lastChild) {
+    container.lastChild.remove();
   }
 
   const navigationGender = createElement('ul',
@@ -21,10 +23,11 @@ export const renderNav = (gender) => {
       className: 'navigation__gender gender',
     },
     {
+      parent: container,
       appends: [...Object.keys(dataNavigation).map(key => {
           return createElement('a',
             {
-              href: '#' + key,
+              href: '#/' + key,
               className: `gender__link ${(key === gender) ? 'gender__link_active' : ''}`,
               title: `Перейти к одежде для ${dataNavigation[key].title}`,
               textContent: dataNavigation[key].title,
@@ -36,12 +39,8 @@ export const renderNav = (gender) => {
             }
           );
         }).map(elem => createElement('li',
-          {
-            className: 'gender__item',
-          },
-          {
-            append: elem,
-          }
+          { className: 'gender__item' },
+          { append: elem }
         ))
       ],
     }
@@ -52,6 +51,7 @@ export const renderNav = (gender) => {
       className: 'category navigation__category',
     },
     {
+      parent: container,
       appends: dataNavigation[gender].list.map(item => createElement('li',
         {
           className: 'category__item',
@@ -60,7 +60,7 @@ export const renderNav = (gender) => {
           append: createElement('a',
             {
               className: 'category__link',
-              href: `#${dataNavigation[gender].slug}/${item.slug}`,
+              href: `#/${dataNavigation[gender].slug}/${item.slug}`,
               title: `Перейти в категорию ${item.title} одежда для ${dataNavigation[gender].title} `,
             },
             {
@@ -76,55 +76,17 @@ export const renderNav = (gender) => {
   );
 
 
-  const container = createElement('',
-    {
-      className: 'container navigation__container',
-    },
-    {
-      parent: nav,
-      appends: [
-        navigationGender,
-        navigationCategory
-      ],
-    }
-  );
+  // const container = createElement('',
+  //   {
+  //     className: 'container navigation__container',
+  //   },
+  //   {
+  //     parent: nav,
+  //     appends: [
+  //       navigationGender,
+  //       navigationCategory
+  //     ],
+  //   }
+  // );
 
-
-
-  // console.log('render nav for', gender, nav);
-
-  /*
-  <div class="container navigation__container">
-
-    <ul class="navigation__gender gender">
-      <li class="gender__item">
-        <a href="#women" class="${(gender === 'women') ? 'gender__link gender__link_active' : 'gender__link'}" data-gender="women">Женщины</a>
-      </li>
-      <li class="gender__item">
-        <a href="#men" class="gender__link${(gender === 'men') ? ' gender__link_active' : ''}" data-gender="men">Мужчины</a>
-      </li>
-    </ul>
-
-    <ul class="navigation__category category">
-      <li class="category__item">
-        <a href="#" class="category__link" data-slug="jackets">куртки</a>
-      </li>
-      <li class="category__item">
-        <a href="#" class="category__link" data-slug="jeens">джинсы</a>
-      </li>
-      <li class="category__item">
-        <a href="#" class="category__link" data-slug="pants">брюки</a>
-      </li>
-      <li class="category__item">
-        <a href="#" class="category__link category__link_active" data-slug="shirts">рубашки</a>
-      </li>
-      <li class="category__item">
-        <a href="#" class="category__link" data-slug="hoodie">толстовки</a>
-      </li>
-      <li class="category__item">
-        <a href="#" class="category__link" data-slug="t-shirts">футболки</a>
-      </li>
-    </ul>
-  </div>
-  */
 };
