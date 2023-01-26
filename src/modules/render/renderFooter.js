@@ -1,19 +1,94 @@
 // * Footer
 import { createElement } from "../createElement";
+import { dataNavigation } from "../navigation";
 
 
-const footer = document.querySelector('.footer');
-const footerContainer = footer.querySelector('.footer__container');
+// const footer = document.querySelector('.footer');
+const footerContainer = document.querySelector('.footer__container');
+
+
+const getCategoryList = (data) => {
+  console.log('data: ', data);
+  const ul = createElement('ul',
+    {
+      className: 'footer-category__list',
+    },
+    {
+      appends: Object.keys(data).map(gender => getCategoryItem(data, gender)),
+    }
+  );
+  return ul;
+}
+
+
+const getCategoryItem = (list, gender) => {
+  console.log('get category item gender: ', gender);
+  const li = createElement('li',
+    {
+      className: 'footer-category__item',
+    },
+    {
+      appends: [
+        createElement('h3',
+          {
+            className: 'footer-category__subtitle',
+            textContent: dataNavigation[gender].title,
+          },
+          {
+            append: createElement('a',
+              {
+                className: 'footer__link',
+                href: '#'
+              }
+            )
+          }
+        ),
+        createElement('ul',
+          {
+            className: 'footer-category__sublist',
+          },
+          {
+            
+          }
+        ),
+      ]
+    }  
+  );
+  return li;
+}
+
+
+const createItemLink = (itemTag = 'li', itemClass, linkClass, href = '#', textContent = '') => {
+  return createElement(itemTag,
+    {
+      className: itemClass,
+    },
+    {
+      append: createElement('a',
+      {
+          href,
+          className: linkClass,
+          textContent,
+        }
+      ),
+    }
+  );
+};
+
+const createLiLink = (itemClass, linkClass, href, text) =>
+  createItemLink('li', itemClass, linkClass, href, text);
 
 
 export const renderFooter = () => {
   console.log('footerContainer: ', footerContainer);
+  console.dir(dataNavigation)
 
   while (footerContainer.lastChild) {
     footerContainer.lastChild.remove();
   }
 
-  const footerCategory = createElement('',
+  // * footer-category * //
+  const footerCategory = createElement('div',
     {
       className: 'footer__item footer__item_category footer-category',
     },
@@ -29,52 +104,58 @@ export const renderFooter = () => {
         createElement('ul',
           {
             className: 'footer-category__list',
-            innerHTML: `
-            <li class="footer-category__item">
-              <h3 class="footer-category__subtitle">
-                <a href="#" class="footer__link">Женский</a>
-              </h3>
-              <ul class="footer-category__sublist">
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Бюстгальтеры</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Трусы</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Носки</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Халаты</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Термобелье</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Пижамы</a>
-                </li>
-              </ul>
-            </li>
-            <li class="footer-category__item">
-              <h3 class="footer-category__subtitle">
-                <a href="#" class="footer__link">Мужчины</a>
-              </h3>
-              <ul class="footer-category__sublist">
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Трусы</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Носки</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Халаты</a>
-                </li>
-                <li class="footer-category__subitem">
-                  <a href="#" class="footer__link">Термобелье</a>
-                </li>
-              </ul>
-            </li>
-            `,
+          },
+          {
+            appends: [
+              createElement('li',
+                {
+                  className: 'footer-category__item',
+                },
+                {
+                  appends: [
+                    createItemLink(
+                      'h3',
+                      'footer-category__subtitle',
+                      'footer__link',
+                      '#' + dataNavigation['women'].slug,
+                      dataNavigation['women'].title
+                    ),
+                    ...dataNavigation['women'].list.map(product =>
+                        createLiLink(
+                          'footer-category__subitem',
+                          'footer__link',
+                          `#${dataNavigation['women'].slug}/${product.slug}`,
+                          product.title
+                        )
+                    ),
+                  ]
+                }
+              ),
+              createElement('li',
+                {
+                  className: 'footer-category__item',
+                },
+                {
+                  appends: [
+                    createItemLink(
+                      'h3',
+                      'footer-category__subtitle',
+                      'footer__link',
+                      '#' + dataNavigation['men'].slug,
+                      dataNavigation['men'].title
+                    ),
+                    ...dataNavigation['men'].list.map(product =>
+                        createLiLink(
+                          'footer-category__subitem',
+                          'footer__link',
+                          `#${dataNavigation['men'].slug}/${product.slug}`,
+                          product.title
+                        )
+                    ),
+                  ]
+                }
+              ),
+            ]
           }
         ),
       ]
