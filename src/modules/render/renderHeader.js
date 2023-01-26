@@ -36,25 +36,13 @@ export const favoriteLink = createElement ('a', {
     `,
 });
 
-// const container = createElement ('div',
-//   {
-//     className: 'container header__container',
-//     innerHTML: `
-//       <a class="header__phone header__link" href="tel:89001231234" title="Позвонить на горячую линию магазина">8&nbsp;930&nbsp;490&nbsp;26&nbsp;20</a>
-//       <img class="header__logo" src="${logo}" alt="Logo Inspired" title="Inspired Logo" />
-//     `,
-//   },
-// );
 
 export const renderHeader = () => {
-  // const header = document.querySelector ('.header');
-  // header.innerHTML = ''; // todo
   const container = document.querySelector ('.header__container');
-  // header.append (container);
   container.innerHTML = `
     <a class="header__phone header__link" href="tel:89001231234" title="Позвонить на горячую линию магазина">8&nbsp;930&nbsp;490&nbsp;26&nbsp;20</a>
     <a href="/" class="header__link header__link_logo">
-      <img class="header__logo" src="${logo}" alt="Logo Inspired" title="Inspired Logo" />
+      <img class="header__logo" src="${logo}" alt="Перейти на Главную страницу" title="Inspired Logo" />
     </a>
   `;
   console.log ('container: ', container);

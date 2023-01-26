@@ -22,11 +22,11 @@ export const renderNav = (gender) => {
     },
     {
       appends: [...Object.keys(dataNavigation).map(key => {
-          // console.log(key)
           return createElement('a',
             {
               href: '#' + key,
               className: `gender__link ${(key === gender) ? 'gender__link_active' : ''}`,
+              title: `Перейти к одежде для ${dataNavigation[key].title}`,
               textContent: dataNavigation[key].title,
             },
             {
@@ -49,18 +49,19 @@ export const renderNav = (gender) => {
 
   const navigationCategory = createElement('ul',
     {
-      className: 'navigation__category category',
+      className: 'category navigation__category',
     },
     {
       appends: dataNavigation[gender].list.map(item => createElement('li',
         {
           className: 'category__item',
-          // textContent: item.title,
         },
         {
           append: createElement('a',
             {
               className: 'category__link',
+              href: `#${dataNavigation[gender].slug}/${item.slug}`,
+              title: `Перейти в категорию ${item.title} одежда для ${dataNavigation[gender].title} `,
             },
             {
               text: item.title,
