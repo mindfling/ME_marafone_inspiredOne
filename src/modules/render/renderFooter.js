@@ -7,57 +7,6 @@ import { dataNavigation } from "../navigation";
 const footerContainer = document.querySelector('.footer__container');
 
 
-const getCategoryList = (data) => {
-  console.log('data: ', data);
-  const ul = createElement('ul',
-    {
-      className: 'footer-category__list',
-    },
-    {
-      appends: Object.keys(data).map(gender => getCategoryItem(data, gender)),
-    }
-  );
-  return ul;
-}
-
-
-const getCategoryItem = (list, gender) => {
-  console.log('get category item gender: ', gender);
-  const li = createElement('li',
-    {
-      className: 'footer-category__item',
-    },
-    {
-      appends: [
-        createElement('h3',
-          {
-            className: 'footer-category__subtitle',
-            textContent: dataNavigation[gender].title,
-          },
-          {
-            append: createElement('a',
-              {
-                className: 'footer__link',
-                href: '#'
-              }
-            )
-          }
-        ),
-        createElement('ul',
-          {
-            className: 'footer-category__sublist',
-          },
-          {
-            
-          }
-        ),
-      ]
-    }  
-  );
-  return li;
-}
-
-
 const createItemLink = (itemTag = 'li', itemClass, linkClass, href = '#', textContent = '') => {
   return createElement(itemTag,
     {
@@ -117,16 +66,25 @@ export const renderFooter = () => {
                       'h3',
                       'footer-category__subtitle',
                       'footer__link',
-                      '#' + dataNavigation['women'].slug,
+                      `#/${dataNavigation['women'].slug}`,
                       dataNavigation['women'].title
                     ),
-                    ...dataNavigation['women'].list.map(product =>
-                        createLiLink(
-                          'footer-category__subitem',
-                          'footer__link',
-                          `#${dataNavigation['women'].slug}/${product.slug}`,
-                          product.title
-                        )
+                    createElement('ul',
+                      {
+                        className: 'footer-category__sublist',
+                      },
+                      {
+                        appends: [
+                          ...dataNavigation['women'].list.map(product =>
+                              createLiLink(
+                                'footer-category__subitem',
+                                'footer__link',
+                                `#/${dataNavigation['women'].slug}/${product.slug}`,
+                                product.title
+                              )
+                          ),
+                        ],
+                      }
                     ),
                   ]
                 }
@@ -141,16 +99,25 @@ export const renderFooter = () => {
                       'h3',
                       'footer-category__subtitle',
                       'footer__link',
-                      '#' + dataNavigation['men'].slug,
+                      '#/' + dataNavigation['men'].slug,
                       dataNavigation['men'].title
                     ),
-                    ...dataNavigation['men'].list.map(product =>
-                        createLiLink(
-                          'footer-category__subitem',
-                          'footer__link',
-                          `#${dataNavigation['men'].slug}/${product.slug}`,
-                          product.title
-                        )
+                    createElement('ul',
+                      {
+                        className: 'footer-category__sublist',
+                      },
+                      {
+                        appends: [
+                          ...dataNavigation['men'].list.map(product =>
+                              createLiLink(
+                                'footer-category__subitem',
+                                'footer__link',
+                                `#/${dataNavigation['men'].slug}/${product.slug}`,
+                                product.title
+                              )
+                          ),
+                        ],
+                      }
                     ),
                   ]
                 }

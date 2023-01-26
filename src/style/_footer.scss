@@ -4,12 +4,11 @@
   line-height: 17px;
   color: $main-color;
   margin: 0;
-  // padding-top: 120px;
-  // @include tablet {
-  //   padding-top: 80px;
-  // }
+  @include tablet {
+    font-size: 12px;
+    line-height: 15px;
+  }
   // @include mobile {
-  //   padding-top: 60px;
   // }
   
   &__container {
