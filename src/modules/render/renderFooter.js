@@ -3,25 +3,19 @@ import { createElement } from "../createElement";
 import { dataNavigation } from "../navigation";
 
 
-// const footer = document.querySelector('.footer');
 const footerContainer = document.querySelector('.footer__container');
 
 
 const createItemLink = (itemTag = 'li', itemClass, linkClass, href = '#', textContent = '') => {
-  return createElement(itemTag,
-    {
-      className: itemClass,
-    },
-    {
-      append: createElement('a',
-      {
-          href,
-          className: linkClass,
-          textContent,
-        }
-      ),
-    }
-  );
+  return createElement(itemTag, {
+    className: itemClass,
+  }, {
+    append: createElement('a', {
+      href,
+      className: linkClass,
+      textContent,
+    }),
+  });
 };
 
 const createLiLink = (itemClass, linkClass, href, text) =>
@@ -37,86 +31,72 @@ export const renderFooter = () => {
   }
 
   // * footer-category * //
-  const footerCategory = createElement('div',
-    {
-      className: 'footer__item footer__item_category footer-category',
-    },
-    {
-      parent: footerContainer,
-      appends: [
-        createElement('h2',
-          {
-            className: 'footer__title footer-category__title',
-            textContent: 'Каталог',
-          }
-        ),
-        createElement('ul',
-          {
-            className: 'footer-category__list',
-          },
-          {
-            appends: [
-              createElement('li',
-                {
-                  className: 'footer-category__item',
-                },
-                {
-                  appends: [
-                    createItemLink(
-                      'h3',
-                      'footer-category__subtitle',
-                      'footer__link',
-                      `#/${dataNavigation['women'].slug}`,
-                      dataNavigation['women'].title
-                    ),
-                    createElement('ul',
-                      {
-                        className: 'footer-category__sublist',
-                      },
-                      {
-                        appends: [
-                          ...dataNavigation['women'].list.map(product =>
-                              createLiLink(
-                                'footer-category__subitem',
-                                'footer__link',
-                                `#/${dataNavigation['women'].slug}/${product.slug}`,
-                                product.title
-                              )
-                          ),
-                        ],
-                      }
-                    ),
-                  ]
-                }
-              ),
-              createElement('li', { className: 'footer-category__item' },
-                {
-                  appends: [
-                    createItemLink('h3', 'footer-category__subtitle', 'footer__link',
-                      '#/' + dataNavigation['men'].slug, dataNavigation['men'].title),
-                    createElement('ul', {className: 'footer-category__sublist'},
-                      {
-                        appends: dataNavigation['men'].list.map(product =>
-                                  createLiLink('footer-category__subitem',
-                                              'footer__link',
-                                              `#/${dataNavigation['men'].slug}/${product.slug}`,
-                                              product.title)),
-                      }
-                    ),
-                  ]
-                }
-              ),
-            ]
-          }
-        ),
-      ]
-    }
-  );
+  const footerCategory = createElement('div', {
+    className: 'footer__item footer__item_category footer-category',
+  }, {
+    parent: footerContainer,
+    appends: [
+      createElement('h2', {
+        className: 'footer__title footer-category__title',
+        textContent: 'Каталог',
+      }),
+      createElement('ul', {
+        className: 'footer-category__list',
+      }, {
+        appends: [
+          createElement('li', {
+            className: 'footer-category__item',
 
-  const footerContacts = createElement('',
-    {
-      className: 'footer__item footer__item_contacts footer-contacts',
-      innerHTML: `
+
+
+
+          }, {
+            appends: [
+              createItemLink(
+                'h3',
+                'footer-category__subtitle',
+                'footer__link',
+                `#/${dataNavigation['women'].slug}`,
+                dataNavigation['women'].title
+              ),
+              createElement('ul', {
+                className: 'footer-category__sublist',
+              }, {
+                appends: [
+                  ...dataNavigation['women'].list.map(product =>
+                    createLiLink(
+                      'footer-category__subitem',
+                      'footer__link',
+                      `#/${dataNavigation['women'].slug}/${product.slug}`,
+                      product.title
+                    )
+                  ),
+                ],
+              }),
+            ]
+          }),
+          createElement('li', { className: 'footer-category__item' }, {
+            appends: [
+              createItemLink('h3', 'footer-category__subtitle', 'footer__link',
+                '#/' + dataNavigation['men'].slug, dataNavigation['men'].title),
+              createElement('ul', { className: 'footer-category__sublist' }, {
+                appends: dataNavigation['men'].list.map(product =>
+                  createLiLink('footer-category__subitem',
+                    'footer__link',
+                    `#/${dataNavigation['men'].slug}/${product.slug}`,
+                    product.title)),
+              }),
+            ]
+          }),
+        ]
+      }),
+    ]
+  });
+
+  // * footer-contacts * //
+  const footerContacts = createElement('', {
+    className: 'footer__item footer__item_contacts footer-contacts',
+    innerHTML: `
         <div class="footer-contacts__email">
           <a href="mailto:Inspired@gmail.com" class="footer-contacts__link footer__link">Inspired@gmail.com</a>
         </div>
@@ -124,16 +104,14 @@ export const renderFooter = () => {
           <a href="tel:89304902620" class="footer-contacts__link footer__link">8&nbsp;930&nbsp;490&nbsp;26&nbsp;20</a>
         </div>
       `,
-    },
-    {
-      parent: footerContainer,
-    }
-  );
+  }, {
+    parent: footerContainer,
+  });
 
-  const footerSocial = createElement('',
-    {
-      className: 'footer__item footer__item_social footer-social',
-      innerHTML: `
+  // * footer-sacial * //
+  const footerSocial = createElement('', {
+    className: 'footer__item footer__item_social footer-social',
+    innerHTML: `
         <h2 class="footer__title footer-social__title">Связаться с нами</h2>
         <p class="footer-social__subtitle">Контакты и адреса магазинов</p>
         <ul class="footer-social__list">
@@ -160,28 +138,24 @@ export const renderFooter = () => {
           </li>
         </ul>
       `,
-    },
-    {
-      parent: footerContainer,
-    }
-  );
+  }, {
+    parent: footerContainer,
+  });
 
-  const footerCopyright = createElement('',
-    {
-      className: 'footer__item footer__item_copyright footer-copyright',
-      innerHTML: `
+  // * footer-copyright * //
+  const footerCopyright = createElement('', {
+    className: 'footer__item footer__item_copyright footer-copyright',
+    innerHTML: `
         <p class="footer-copyright__text">&copy;&nbsp;INSPIRED,&nbsp;2023</p>
       `,
-    },
-    {
-      parent: footerContainer,
-    }
-  );
+  }, {
+    parent: footerContainer,
+  });
 
-  const footerDevelopment = createElement('ul',
-    {
-      className: 'footer__item footer__item_development footer-development',
-      innerHTML: `
+  // * footer-development * //
+  const footerDevelopment = createElement('ul', {
+    className: 'footer__item footer__item_development footer-development',
+    innerHTML: `
         <li class="footer-development__item">
           <p title="UX/UI designer">Designer: <a href="@Mrshmallowww" class="footer__link">Anastasia Ilina</a></p>
         </li>
@@ -189,10 +163,8 @@ export const renderFooter = () => {
           <p>Developer: <a href="https://t.me/MindFlingFoxIT" class="footer__link">Me MindFling</a></p>
         </li>
       `,
-    },
-    {
-      parent: footerContainer,
-    }
-  );
+  }, {
+    parent: footerContainer,
+  });
 
 };
