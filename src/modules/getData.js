@@ -4,33 +4,33 @@ import { API_URL } from './const';
 
 export const getData = async(urlApi, params, callbackError = () => {}) => {
   try {
-    const url = new URL(API_URL);
+    const url = new URL(urlApi);
+    console.log('url: ', url);
 
+    // обработка параметров перед отправкой
     if (params && typeof params === 'object') {
       for (const key in params) {
-        if (params.hasOwnProperty(key)) {
+        if (params.hasOwnProperty(key)) { //
           url.searchParams.set(key, params[key]);
-        }
+        } //
       }
     }
 
-    const data = await fetch(url)
-      .then(response => {
-        console.log('url', url)
-        console.log('ok', response.ok);
-        if (!response.ok) {
-          // была ошибка
-          // throw new Error('My Error Status: ' + response.status + ' back with Text: ' + response.statusText);
-          // throw new Error('Была ошибка');
-          throw new Error(response.statusText);
-        }
-        return response.json();
-      })
-      .catch(err => console.log('fetch error', err));
+    const response = await fetch(url);
+    console.log('response: ', response);
+    
+    const data = await response.json();
+    console.log('json data: ', data);
+
+    if (!response.ok) {
+      // была ошибка
+      throw new Error(data.message);
+    }
 
     return data;
     
   } catch (err) {
+    // запуск колбека при ошибке
     console.warn(err);
     if (typeof params === 'function') {
       params(err); // в случае е. не было params

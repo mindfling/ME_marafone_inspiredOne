@@ -1,13 +1,16 @@
-export const DATA = {};
-export const API_URL = 'http://localhost:8024/api/goods';
+export const DATA = {
+  navigation: {},
+};
+// export const API_URL = 'http://localhost:8024/api/goods';
+export const API_URL = 'http://localhost:8024';
 export const TITLE = {
   women: {
     title: 'Новая коллекция зимней женской одежды',
-    id: '',
+    id: '', // переход на товар
   },
   men: {
     title: 'Новая коллекция зимней одежды для мужчин',
-    id: '',
+    id: '', // переход на товар
   }
 }
 

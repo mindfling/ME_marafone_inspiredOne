@@ -11,18 +11,58 @@ import { womenMainPage } from './modules/mainPage/womenMainPage';
 import { menMainPage } from './modules/mainPage/menMainPage';
 import { getData } from './modules/getData';
 
-import { API_URL } from './modules/const';
+import { API_URL, DATA } from './modules/const';
 
 
 // * DATA INIT
 
 const init = async () => {
-  const data = await getData(API_URL, {
-    list: '5386011733',
-  });
-  console.log('data: ', data);
-  console.log('data: ', data.goods);
+  const dataNavigation = await getData(`${API_URL}/api/categories`, {});
+  console.log('dataNavigation: ', dataNavigation);
+  DATA.navigation = dataNavigation;
+  console.log('DATA.navigation : ', DATA );
   
+  
+  // * ROUTER
+  router.on('*', () => {
+    renderHeader();
+    renderFooter();
+  });
+  
+  router.on('/', () => {
+    womenMainPage(); // default main page
+  });
+  
+  router.on('women', () => {
+    console.log('women')
+    womenMainPage();
+  });
+  
+  router.on('men', () => {
+    console.log('men')
+    menMainPage();
+  });
+  
+  
+  router.on('cart', () => {
+    console.log('#cart go to cart goods')
+  });
+  
+  router.on('fav', () => {
+    console.log('#fav go to favorite goods')
+  });
+  
+  router.resolve();
+
+  
+  const data = await getData(`${API_URL}/api/goods`, {
+    // list: '5386011733',
+    gender: 'men',
+    category: 'bathrobes',
+    // list: '2782180237',
+  });
+  
+  console.log('data ', data)
   
   // const data = await getData(url, {
   //   gender: 'men',
@@ -37,39 +77,4 @@ const init = async () => {
 
 init();
 
-
-// * ROUTER
-router.on('*', () => {
-  // console.log('* begin all pages at * render deft header footer')
-  renderHeader();
-  renderFooter();
-  // console.log('*  ends all pages at * render deft header footer')
-});
-
-router.on('/', () => {
-  // console.log('/ beg root page')
-  womenMainPage(); // default main page
-  // console.log('/ end root page')
-});
-
-router.on('women', () => {
-  console.log('women')
-  womenMainPage();
-});
-
-router.on('men', () => {
-  console.log('men')
-  menMainPage();
-});
-
-
-router.on('cart', () => {
-  console.log('#cart go to cart goods')
-});
-
-router.on('fav', () => {
-  console.log('#fav go to favorite goods')
-});
-
-router.resolve();
 
