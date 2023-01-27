@@ -9,19 +9,47 @@ import { renderFooter } from './modules/render/renderFooter';
 import { mainPage } from './modules/mainPage/mainPage';
 import { womenMainPage } from './modules/mainPage/womenMainPage';
 import { menMainPage } from './modules/mainPage/menMainPage';
+import { getData } from './modules/getData';
+
+import { API_URL } from './modules/const';
 
 
+// * DATA INIT
+
+const init = async () => {
+  const data = await getData(API_URL, {
+    list: '5386011733',
+  });
+  console.log('data: ', data);
+  console.log('data: ', data.goods);
+  
+  
+  // const data = await getData(url, {
+  //   gender: 'men',
+  //   category: 'thermal',
+  // });
+  // console.log('data: ', data, data.goods, data.page, data.pages);
+  
+  // data.goods.forEach(item => {
+  //   console.log(item.title, '->', item.code)
+  // });
+};
+
+init();
+
+
+// * ROUTER
 router.on('*', () => {
-  console.log('* begin all pages at * render deft header footer')
+  // console.log('* begin all pages at * render deft header footer')
   renderHeader();
   renderFooter();
-  console.log('*  ends all pages at * render deft header footer')
+  // console.log('*  ends all pages at * render deft header footer')
 });
 
 router.on('/', () => {
-  console.log('/ beg root page')
+  // console.log('/ beg root page')
   womenMainPage(); // default main page
-  console.log('/ end root page')
+  // console.log('/ end root page')
 });
 
 router.on('women', () => {
@@ -45,76 +73,3 @@ router.on('fav', () => {
 
 router.resolve();
 
-
-// * обработка кнопки добавить в избранное
-
-/*
-document.addEventListener ('DOMContentLoaded', event => {
-  const btnFavList = document.querySelectorAll('.product__btn-favorite');
-  const goods = document.querySelector('.goods');
-
-  const genderLinks = document.querySelectorAll('.gender__link');
-  const categoryLinks = document.querySelectorAll('.category__link');
-
-  const genders = ['women', 'men'];
-  const genderHeroTitles = {
-    women: 'Новая коллекция зимней женской одежды',
-    men: 'Новая коллекция зимней одежды для мужчин',
-  };
-
-// * simple click on gender
-genderLinks.forEach(link => {
-  link.addEventListener('click', e => {
-    const links = document.querySelectorAll('.gender__link');
-    const hero = document.querySelector('.hero');
-    const heroTitle = hero.querySelector('.hero__title');
-
-    links.forEach((elem, index) => {
-      if (elem === e.target) {
-        elem.classList.add('gender__link_active');
-        const heroClass = genders[index];
-        hero.classList.add('hero_' + heroClass);
-        heroTitle.textContent = genderHeroTitles[heroClass];
-        console.log(elem.dataset.gender);
-      } else {
-        const heroClass = genders[index];
-        // ? только для 2х элеменов
-        elem.classList.remove('gender__link_active');
-        hero.classList.remove('hero_' + heroClass);
-      }
-    });
-  });
-});
-
-// * simple click on category
-categoryLinks.forEach(link => {
-  link.addEventListener('click', event => {
-    const links = document.querySelectorAll('.category__link');
-    const target = event.target;
-    links.forEach(elem => {
-      if (elem === target) {
-        console.log(elem.dataset.slug);
-      } else {
-        elem.classList.remove('category__link_active');
-      }
-    });
-  });
-});
-
-// * click по цвету товара
-goods.addEventListener('click', e => {
-  if (e.target.classList.contains('color')) {
-    console.log('color');
-    e.target.classList.toggle('color_check');
-  }
-});
-
-// * click по сердечку ♡
-btnFavList.forEach(btn => {
-  btn.addEventListener('click', e => {
-    console.log(e.target);
-    btn.classList.toggle('product__btn-favorite_active');
-  });
-});
-});
-*/
