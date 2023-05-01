@@ -1,6 +1,9 @@
 arch/
+api-inspired/
 assets/
 node_modules/
 .vscode/
 package-lock.json
 *.zip
+.prettierrc
+.gitignore

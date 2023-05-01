@@ -1,29 +1,105 @@
-// * products list all
-import product1 from '../../img/goods/product001.jpg';
-import product2 from '../../img/goods/product002.jpg';
-import product3 from '../../img/goods/product003.jpg';
-import product4 from '../../img/goods/product004.jpg';
-import product5 from '../../img/goods/product012.jpg';
-import product6 from '../../img/goods/product013.jpg';
-import product7 from '../../img/goods/product007.jpg';
-import product8 from '../../img/goods/product008.jpg';
-import product11 from '../../img/goods/product011.jpg';
-import product12 from '../../img/goods/product012.jpg';
-import product13 from '../../img/goods/product013.jpg';
-import product14 from '../../img/goods/product014.jpg';
-import product15 from '../../img/goods/product015.jpg';
+/* eslint-disable max-len */
+// * render goods products section
+import {createElement} from '../createElement';
+import {getData} from '../getData';
+
+import {API_URL, DATA, ruSymbol} from '../const';
 
 
-export const renderProducts = (gender) => {
+export const renderProducts = async (gender, title) => {
+  console.log(DATA.colors);
+  console.log('gender, title: ', gender, title);
+
+  const data = await getData(`${API_URL}/api/goods?gender=${gender}`);
+  console.log('products data: ', data);
+
   const products = document.querySelector('.goods');
-  console.log('render products: ', gender, products);
+  products.innerHTML = '';
 
+  const goodsTitle = createElement('h2',
+    {
+      className: 'goods__title',
+      textContent: title,
+    },
+  );
+
+  const container = createElement('',
+    {
+      className: 'container goods__container',
+    },
+    {
+      parent: products,
+      append: goodsTitle,
+    },
+  );
+
+  const goodsList = createElement('ul',
+    {
+      className: 'goods__list',
+    },
+    {
+      parent: container,
+      appends: [
+        ...data.map((product) => {
+          console.log(product.id, product.title, product.price, product.colors, product);
+          return createElement(
+            'li',
+            {
+              className: 'goods__item',
+            },
+            {
+              append: createElement('article',
+                {
+                  className: 'product goods__product',
+                  // title: `${product.title} ${product.id}`,
+                  innerHTML: `
+                    <a href="#" class="product__link">
+                      <img class="product__image"
+                        src="${API_URL}/img/${product.id}.jpg"
+                        alt="Товар ${product.title} артикул ${product.id}">
+                      <h3 class="product__title" title="${product.title} ${product.id}">${product.title}</h3>
+                    </a>
+                    <div class="product__row">
+                      <p class="product__price">${product.price} ${ruSymbol}</p>
+                      <button class="product__btn-favorite" aria-label="добавить в избраное title="Добавить в избранное"></button>
+                    </div>
+                  `,
+                },
+                {
+                  append: createElement('ul',
+                    {
+                      className: 'product__color-list',
+                    },
+                    {
+                      appends: product.colors.map((color, index) => createElement(
+                        'li',
+                        {
+                          className: 'product__color-item',
+                        },
+                        {
+                          append: createElement('',
+                            {
+                              className: `color color_${DATA.colors[color].title} ${index !== 0 ? '' : 'color_check'}`,
+                              title: 'Цвет ' + DATA.colors[color].title,
+                            },
+                          ),
+                        },
+                      )),
+                    },
+                  ),
+                },
+              ),
+            },
+          );
+        }),
+      ],
+    },
+  );
+
+  /*
   products.innerHTML = `
-<div class="container goods__container">
-  <h2 class="goods__title">Новинки</h2>
 
-  <ul class="goods__list">
-  
+
     <li class="goods__item">
       <article class="product goods__product">
         <a href="#" class="product__link">
@@ -315,8 +391,5 @@ export const renderProducts = (gender) => {
         </ul>
       </article>
     </li>
-
-  </ul>
-</div>
-  `;
+  `;*/
 };

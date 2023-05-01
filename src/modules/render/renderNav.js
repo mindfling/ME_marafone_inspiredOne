@@ -1,11 +1,12 @@
+/* eslint-disable max-len */
 // * NAVIGATION top nav
 
-import { createElement } from "../createElement";
-import { dataNavigation } from "../navigation";
+import {createElement} from '../createElement';
+import {dataNavigation} from '../navigation';
 
 export const renderNav = (gender) => {
   if (!gender) {
-    console.log('empty gender nav')
+    console.log('empty gender nav');
     return;
   }
 
@@ -13,7 +14,7 @@ export const renderNav = (gender) => {
   // nav.innerHTML = '';
   const container = document.querySelector('.navigation__container');
 
-  // todo initial clear 
+  // todo initial clear
   while (container.lastChild) {
     container.lastChild.remove();
   }
@@ -24,26 +25,24 @@ export const renderNav = (gender) => {
     },
     {
       parent: container,
-      appends: [...Object.keys(dataNavigation).map(key => {
-          return createElement('a',
-            {
-              href: '#/' + key,
-              className: `gender__link ${(key === gender) ? 'gender__link_active' : ''}`,
-              title: `Перейти к одежде для ${dataNavigation[key].title}`,
-              textContent: dataNavigation[key].title,
-            },
-            {
-              callback: (element) => {
-                element.dataset.gender = key;
-              },
-            }
-          );
-        }).map(elem => createElement('li',
-          { className: 'gender__item' },
-          { append: elem }
-        ))
+      appends: [...Object.keys(dataNavigation).map(key => createElement('a',
+        {
+          href: '#/' + key,
+          className: `gender__link ${(key === gender) ? 'gender__link_active' : ''}`,
+          title: `Перейти к одежде для ${dataNavigation[key].title}`,
+          textContent: dataNavigation[key].title,
+        },
+        {
+          callback: (element) => {
+            element.dataset.gender = key;
+          },
+        },
+      )).map(elem => createElement('li',
+        {className: 'gender__item'},
+        {append: elem},
+      )),
       ],
-    }
+    },
   );
 
   const navigationCategory = createElement('ul',
@@ -68,25 +67,10 @@ export const renderNav = (gender) => {
               callback: elem => {
                 elem.dataset.slug = item.slug;
               },
-            }
+            },
           ),
-        }
-      ))
-    }
+        },
+      )),
+    },
   );
-
-
-  // const container = createElement('',
-  //   {
-  //     className: 'container navigation__container',
-  //   },
-  //   {
-  //     parent: nav,
-  //     appends: [
-  //       navigationGender,
-  //       navigationCategory
-  //     ],
-  //   }
-  // );
-
 };

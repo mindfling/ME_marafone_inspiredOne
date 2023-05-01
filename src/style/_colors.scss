@@ -7,18 +7,18 @@
   outline-offset: 3px;
   outline: 0.4px solid transparent;
   @include tablet {
-    width: 12px;
-    height: 12px;
+    // width: 12px;
+    // height: 12px;
   }
   &:hover {
     outline: 0.4px solid $dim_grey;
   }
-  &_check {
-    outline: 0.4px solid $dim_grey;
-    &:hover {
-      outline: 0.4px solid transparent;
-    }
-  }
+  // &_check {
+  //   outline: 0.4px solid $dim_grey;
+  //   &:hover {
+  //     outline: 0.4px solid transparent;
+  //   }
+  // }
   &_black {
     background-color: black;
     border: 1px solid #000;
@@ -35,17 +35,45 @@
     background-color: royalblue;
     border: 1px solid royalblue;
   }
+  &_deepskyblue {
+    background-color: deepskyblue;
+    border: 1px solid dimgray;
+  }
   &_green {
     background-color: darkgreen;
     border: 1px solid darkgreen;
   }
   &_orange {
     background-color: orange;
-    border: 1px solid orange;
+    border: 1px solid dimgray;
+  }
+  &_yellow {
+    background-color: yellow;
+    border: 1px solid dimgray;
   }
   &_beige {
     background-color: beige;
     border: 1px solid black;
+  }
+  &_milk {
+    background-color: #FDF1BD;
+    border: 1px solid dimgray;
+  }
+  &_brown {
+    background-color: brown;
+    border: 1px solid brown;
+  }
+  &_bermudagreen {
+    background-color: #C5FAE8;
+    border: 1px solid dimgray;
+  }
+  &_pink {
+    background-color: pink;
+    border: 1px solid dimgray;
+  }
+  &_ruby {
+    background-color: #9b111e;
+    border: 1px solid dimgray;
   }
   
 }

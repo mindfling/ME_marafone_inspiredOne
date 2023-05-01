@@ -1,8 +1,9 @@
+/* eslint-disable max-len */
 // * header
 import {createElement} from '../createElement';
 import logo from '../../img/logo.svg';
 
-export const searchButton = createElement ('button', {
+export const searchButton = createElement('button', {
   className: 'header__link',
   title: 'Кнопка Поиска товаров',
   innerHTML: `
@@ -13,7 +14,7 @@ export const searchButton = createElement ('button', {
     `,
 });
 
-export const cartLink = createElement ('a', {
+export const cartLink = createElement('a', {
   className: 'header__link',
   title: 'Ссылка на Корзину с покупками',
   href: '#/cart',
@@ -25,7 +26,7 @@ export const cartLink = createElement ('a', {
     `,
 });
 
-export const favoriteLink = createElement ('a', {
+export const favoriteLink = createElement('a', {
   className: 'header__link',
   title: 'Ссылка на Избраные товары',
   href: '#/fav',
@@ -36,37 +37,75 @@ export const favoriteLink = createElement ('a', {
     `,
 });
 
-
 export const renderHeader = () => {
-  const container = document.querySelector ('.header__container');
+  const container = document.querySelector('.header__container');
+  container.innerHTML = '';
+  /*
   container.innerHTML = `
     <a class="header__phone header__link" href="tel:89001231234" title="Позвонить на горячую линию магазина">8&nbsp;930&nbsp;490&nbsp;26&nbsp;20</a>
     <a href="/" class="header__link header__link_logo">
       <img class="header__logo" src="${logo}" alt="Перейти на Главную страницу" title="Inspired Logo" />
     </a>
-  `;
-  console.log ('container: ', container);
+  `; */
 
-  const nav = createElement ('div',
-    { className: 'header__navigation' },
-    { parent: container }
+  const headerPhone = createElement(
+    'a',
+    {
+      className: 'header__phone header__link',
+      href: 'tel:89001231234',
+      title: 'Позвонить на горячую линию магазина',
+    },
+    {
+      text: '8&nbsp;930&nbsp;490&nbsp;26&nbsp;20',
+      parent: container,
+    },
   );
 
-  createElement ('ul',
+  const headerLogo = createElement(
+    'a',
+    {
+      className: 'header__link header__link_logo',
+      href: '/#',
+    },
+    {
+      parent: container,
+      append: createElement('img',
+        {
+          className: 'header__logo',
+          src: logo,
+          alt: 'Перейти на Главную страницу',
+          title: 'Inspired Logo',
+        },
+      ),
+    },
+  );
+
+  console.log('header container: ', container, headerPhone, headerLogo);
+
+  const nav = createElement(
+    'div',
+    {
+      className: 'header__navigation',
+    },
+    {
+      parent: container,
+    },
+  );
+
+  createElement(
+    'ul',
     {
       className: 'header__nav-list',
     },
     {
       parent: nav,
       // заворачиваем в обертку
-      appends: [searchButton, cartLink, favoriteLink].map (elem =>
-        createElement (
-          'li',
-          { className: 'header__nav-item' },
-          { append: elem }
-        )
+      appends: [searchButton, cartLink, favoriteLink].map((elem) =>
+        createElement('li',
+          {className: 'header__nav-item'},
+          {append: elem},
+        ),
       ),
-    }
+    },
   );
-
 };

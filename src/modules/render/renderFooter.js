@@ -1,43 +1,42 @@
+/* eslint-disable max-len */
 // * Footer
 import {createElement} from '../createElement';
 import {dataNavigation} from '../navigation';
 
-const footerContainer = document.querySelector ('.footer__container');
+const footerContainer = document.querySelector('.footer__container');
 
 const createItemLink = (
-  itemTag = 'li',
-  itemClass,
-  linkClass,
-  href = '#',
-  textContent = ''
-) => {
-  return createElement (
-    itemTag,
-    {
-      className: itemClass,
-    },
-    {
-      append: createElement ('a', {
-        href,
-        className: linkClass,
-        textContent,
-      }),
-    }
-  );
-};
+    itemTag = 'li',
+    itemClass,
+    linkClass,
+    href = '#',
+    textContent = '',
+) => createElement(
+  itemTag,
+  {
+    className: itemClass,
+  },
+  {
+    append: createElement('a', {
+      href,
+      className: linkClass,
+      textContent,
+    }),
+  },
+);
 
 const createLiLink = (itemClass, linkClass, href, text) =>
-  createItemLink ('li', itemClass, linkClass, href, text);
+  createItemLink('li', itemClass, linkClass, href, text);
 
 export const renderFooter = () => {
   // console.log ('footerContainer: ', footerContainer);
 
   while (footerContainer.lastChild) {
-    footerContainer.lastChild.remove ();
+    footerContainer.lastChild.remove();
   }
 
   // * footer-category * //
-  const footerCategory = createElement (
+  const footerCategory = createElement(
     'div',
     {
       className: 'footer__item footer__item_category footer-category',
@@ -45,90 +44,90 @@ export const renderFooter = () => {
     {
       parent: footerContainer,
       appends: [
-        createElement ('h2', {
+        createElement('h2', {
           className: 'footer__title footer-category__title',
           textContent: 'Каталог',
         }),
-        createElement (
+        createElement(
           'ul',
           {
             className: 'footer-category__list',
           },
           {
             appends: [
-              createElement (
+              createElement(
                 'li',
                 {
                   className: 'footer-category__item',
                 },
                 {
                   appends: [
-                    createItemLink (
+                    createItemLink(
                       'h3',
                       'footer-category__subtitle',
                       'footer__link',
                       `#/${dataNavigation['women'].slug}`,
-                      dataNavigation['women'].title
+                      dataNavigation['women'].title,
                     ),
-                    createElement (
+                    createElement(
                       'ul',
                       {
                         className: 'footer-category__sublist',
                       },
                       {
                         appends: [
-                          ...dataNavigation['women'].list.map (product =>
-                            createLiLink (
+                          ...dataNavigation['women'].list.map(product =>
+                            createLiLink(
                               'footer-category__subitem',
                               'footer__link',
                               `#/${dataNavigation['women'].slug}/${product.slug}`,
-                              product.title
-                            )
+                              product.title,
+                            ),
                           ),
                         ],
-                      }
+                      },
                     ),
                   ],
-                }
+                },
               ),
-              createElement (
+              createElement(
                 'li',
                 {className: 'footer-category__item'},
                 {
                   appends: [
-                    createItemLink (
+                    createItemLink(
                       'h3',
                       'footer-category__subtitle',
                       'footer__link',
                       '#/' + dataNavigation['men'].slug,
-                      dataNavigation['men'].title
+                      dataNavigation['men'].title,
                     ),
-                    createElement (
+                    createElement(
                       'ul',
                       {className: 'footer-category__sublist'},
                       {
-                        appends: dataNavigation['men'].list.map (product =>
-                          createLiLink (
+                        appends: dataNavigation['men'].list.map(product =>
+                          createLiLink(
                             'footer-category__subitem',
                             'footer__link',
                             `#/${dataNavigation['men'].slug}/${product.slug}`,
-                            product.title
-                          )
+                            product.title,
+                          ),
                         ),
-                      }
+                      },
                     ),
                   ],
-                }
+                },
               ),
             ],
-          }
+          },
         ),
       ],
-    }
+    },
   );
 
   // * footer-contacts * //
-  const footerContacts = createElement (
+  const footerContacts = createElement(
     '',
     {
       className: 'footer__item footer__item_contacts footer-contacts',
@@ -143,11 +142,11 @@ export const renderFooter = () => {
     },
     {
       parent: footerContainer,
-    }
+    },
   );
 
   // * footer-sacial * //
-  const footerSocial = createElement (
+  const footerSocial = createElement(
     '',
     {
       className: 'footer__item footer__item_social footer-social',
@@ -181,11 +180,11 @@ export const renderFooter = () => {
     },
     {
       parent: footerContainer,
-    }
+    },
   );
 
   // * footer-copyright * //
-  const footerCopyright = createElement (
+  const footerCopyright = createElement(
     '',
     {
       className: 'footer__item footer__item_copyright footer-copyright',
@@ -195,11 +194,11 @@ export const renderFooter = () => {
     },
     {
       parent: footerContainer,
-    }
+    },
   );
 
   // * footer-development * //
-  const footerDevelopment = createElement (
+  const footerDevelopment = createElement(
     'ul',
     {
       className: 'footer__item footer__item_development footer-development',
@@ -214,6 +213,6 @@ export const renderFooter = () => {
     },
     {
       parent: footerContainer,
-    }
+    },
   );
 };
